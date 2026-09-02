@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>දළු මාර්ග | Leaf Routes – Sunil's Tea Factory</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== TEA LEAF THEME ===== */
+        :root {
+            --tea-dark: #0f2a16;
+            --tea-mid: #1f4028;
+            --tea-green: #4c8b3a;
+            --tea-light: #75b843;
+            --tea-pale: #a8d08a;
+            --gold: #d4a843;
+            --card-glass: rgba(255, 255, 255, 0.06);
+            --border-glass: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Sinhala', sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 20% 50%, #1a4025 0%, var(--tea-dark) 70%);
+            color: #e8f0e0;
+            overflow-x: hidden;
+            cursor: none;
+            position: relative;
+        }
+
+        /* ===== FULL PAGE LEAF PATTERN OVERLAY ===== */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(117, 184, 67, 0.04) 0%, transparent 30%),
+                radial-gradient(circle at 85% 70%, rgba(117, 184, 67, 0.05) 0%, transparent 35%),
+                radial-gradient(circle at 45% 85%, rgba(168, 208, 138, 0.03) 0%, transparent 28%),
+                radial-gradient(circle at 70% 15%, rgba(75, 139, 58, 0.04) 0%, transparent 32%),
+                radial-gradient(circle at 5% 60%, rgba(168, 208, 138, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 95% 40%, rgba(75, 139, 58, 0.03) 0%, transparent 30%);
+        }
+
+        /* ===== FLOATING LEAF PARTICLES ===== */
+        .leaf-particle {
+            position: fixed;
+            font-size: 1.8rem;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.08;
+            animation: leafFloat linear infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 8px rgba(117, 184, 67, 0.1));
+        }
+
+        @keyframes leafFloat {
+            0% {
+                transform: translateY(-20vh) rotate(0deg) scale(0.8);
+                opacity: 0.02;
+            }
+            25% {
+                transform: translateY(20vh) translateX(80px) rotate(90deg) scale(1.2);
+                opacity: 0.12;
+            }
+            50% {
+                transform: translateY(50vh) translateX(-60px) rotate(180deg) scale(0.9);
+                opacity: 0.08;
+            }
+            75% {
+                transform: translateY(75vh) translateX(90px) rotate(270deg) scale(1.1);
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(110vh) translateX(-40px) rotate(360deg) scale(0.7);
+                opacity: 0.02;
+            }
+        }
+
+        /* ===== CUSTOM LEAF CURSOR ===== */
+        #cursor-leaf {
+            position: fixed;
+            font-size: 2.2rem;
+            pointer-events: none;
+            z-index: 99999;
+            filter: drop-shadow(0 0 30px rgba(117, 184, 67, 0.5));
+            transform: translate(-50%, -50%);
+            transition: transform 0.06s ease;
+        }
+
+        /* ===== TRAIL LEAVES ===== */
+        .trail-leaf {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            font-size: 1rem;
+            opacity: 0.6;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 8px rgba(117, 184, 67, 0.2));
+            will-change: transform;
+        }
+
+        /* ===== FALLING LEAVES ===== */
+        .falling-leaf {
+            position: fixed;
+            top: -60px;
+            pointer-events: none;
+            z-index: 9997;
+            font-size: 1.8rem;
+            animation: fall linear forwards;
+            will-change: transform;
+            filter: drop-shadow(0 0 18px rgba(117, 184, 67, 0.2));
+            opacity: 0.6;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-60px) translateX(0) rotate(0deg) scale(0.8);
+                opacity: 0.8;
+            }
+            20% {
+                transform: translateY(20vh) translateX(60px) rotate(120deg) scale(1.1);
+            }
+            40% {
+                transform: translateY(40vh) translateX(-40px) rotate(240deg) scale(0.9);
+            }
+            60% {
+                transform: translateY(60vh) translateX(70px) rotate(360deg) scale(1.05);
+            }
+            80% {
+                transform: translateY(80vh) translateX(-30px) rotate(480deg) scale(0.95);
+            }
+            100% {
+                transform: translateY(110vh) translateX(40px) rotate(600deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        /* ===== GLASS NAVBAR ===== */
+        .glass-nav {
+            background: rgba(15, 42, 22, 0.85);
+            backdrop-filter: blur(18px) saturate(180%);
+            border-bottom: 1px solid var(--border-glass);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+            z-index: 9996;
+            position: relative;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--gold) !important;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            text-shadow: 0 0 20px rgba(212, 168, 67, 0.1);
+        }
+        .navbar-brand:hover {
+            transform: translateX(-4px);
+        }
+
+        .nav-link {
+            color: rgba(232, 240, 224, 0.7) !important;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem !important;
+            border-radius: 40px;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        .nav-link::after {
+            content: "🌿";
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: translateY(-50%) scale(1);
+            opacity: 0.8;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--tea-pale) !important;
+            background: rgba(117, 184, 67, 0.12);
+            text-shadow: 0 0 20px rgba(117, 184, 67, 0.1);
+        }
+        .nav-link.active {
+            color: var(--gold) !important;
+            background: rgba(212, 168, 67, 0.08);
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            text-align: center;
+            padding: 20px 0 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .page-header .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: uppercase;
+            background: rgba(212, 168, 67, 0.08);
+            padding: 0.3rem 1.4rem;
+            border-radius: 40px;
+            border: 1px solid rgba(212, 168, 67, 0.1);
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .page-header h1 {
+            font-weight: 800;
+            color: #ffffff;
+            font-size: 2.8rem;
+            line-height: 1.15;
+            text-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+        .page-header h1::after {
+            content: " 🍃";
+            display: inline-block;
+            animation: leafWiggle 4s ease-in-out infinite;
+        }
+        @keyframes leafWiggle {
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(15deg);
+            }
+        }
+        .page-header p {
+            font-size: 1.05rem;
+            color: rgba(200, 215, 200, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== CONNECTION BADGE (Sunils Link) ===== */
+        .connection-badge {
+            background: var(--card-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--gold);
+            border-radius: 60px;
+            padding: 12px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin: 10px auto 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--gold);
+            font-weight: 600;
+            cursor: none;
+        }
+        .connection-badge:hover {
+            background: rgba(212, 168, 67, 0.12);
+            transform: scale(1.03);
+            color: var(--gold);
+            box-shadow: 0 0 40px rgba(212, 168, 67, 0.08);
+        }
+        .connection-badge i {
+            font-size: 1.4rem;
+        }
+
+        /* ===== PHONE DIRECTORY GRID ===== */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 22px 18px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            color: #e8f0e0;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-card::before {
+            content: "🌿";
+            position: absolute;
+            bottom: -15px;
+            right: -10px;
+            font-size: 5rem;
+            opacity: 0.04;
+            transform: rotate(25deg);
+            pointer-events: none;
+        }
+        .contact-card::after {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border-radius: 18px;
+            border: 1.5px dashed rgba(255, 215, 0, 0.05);
+            pointer-events: none;
+        }
+        .contact-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--gold);
+            background: rgba(30, 60, 35, 0.6);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.4);
+        }
+        .contact-card .icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 6px;
+            color: var(--gold);
+        }
+        .contact-card .area-number {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--gold);
+            border: 1px solid rgba(212, 168, 67, 0.15);
+            padding: 2px 14px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .contact-card h4 {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .contact-card .phone {
+            font-size: 1.1rem;
+            color: var(--tea-pale);
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .contact-card .phone i {
+            color: var(--gold);
+            margin-right: 6px;
+        }
+        .contact-card .call-btn {
+            display: inline-block;
+            background: linear-gradient(115deg, #2b6e3c, #1c7a3a);
+            color: white;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            border: none;
+            cursor: none;
+            width: 100%;
+        }
+        .contact-card .call-btn:hover {
+            background: linear-gradient(115deg, #1e562c, #146b30);
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
+        .contact-card .call-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* ===== CONNECTION FOOTER CTA ===== */
+        .cta-section {
+            margin-top: 40px;
+            padding: 25px;
+            background: var(--card-glass);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid var(--border-glass);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-section h3 {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .cta-section p {
+            color: rgba(200, 215, 200, 0.8);
+            margin-bottom: 16px;
+        }
+        .cta-section .btn-sunils {
+            display: inline-block;
+            background: linear-gradient(115deg, var(--gold), #b8922f);
+            color: #0a140a;
+            font-weight: 800;
+            padding: 14px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 20px rgba(212, 168, 67, 0.2);
+            cursor: none;
+            border: none;
+        }
+        .cta-section .btn-sunils:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.35);
+            color: #0a140a;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(5, 13, 5, 0.6);
+            backdrop-filter: blur(8px);
+            color: rgba(168, 200, 168, 0.6);
+            padding: 20px 0;
+            border-top: 1px solid var(--border-glass);
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+        }
+        .socials {
+            display: flex;
+            gap: 10px;
+        }
+        .socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(168, 200, 168, 0.5);
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid var(--border-glass);
+            cursor: none;
+            font-weight: 700;
+        }
+        .socials a:hover {
+            background: var(--gold);
+            color: #0a140a;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.15);
+            border-color: var(--gold);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .directory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 14px;
+            }
+            .contact-card {
+                padding: 18px 14px;
+            }
+            .contact-card h4 {
+                font-size: 1rem;
+            }
+            .contact-card .phone {
+                font-size: 0.95rem;
+            }
+            #cursor-leaf {
+                font-size: 1.6rem;
+            }
+            .trail-leaf {
+                font-size: 0.8rem !important;
+            }
+            .connection-badge {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            .directory-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .contact-card {
+                padding: 14px 10px;
+                border-radius: 18px;
+            }
+            .contact-card .call-btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+            .contact-card .icon {
+                font-size: 1.6rem;
+            }
+            .contact-card h4 {
+                font-size: 0.85rem;
+            }
+            .contact-card .phone {
+                font-size: 0.8rem;
+            }
+            .cta-section .btn-sunils {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--tea-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CURSOR LEAF ===== -->
+    <div id="cursor-leaf">🍃</div>
+
+    <!-- ===== TRAIL CONTAINER ===== -->
+    <div id="trail-container"></div>
+
+    <!-- ===== FLOATING LEAF PARTICLES ===== -->
+    <div id="leaf-particles"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg glass-nav sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">🌿 සුනිල්ස් තේ කර්මාන්තශාලාව</a>
+            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon" style="filter: invert(0.8);"></span>
+            </button>
+            <div id="nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="sunils.html">සුනිල්ස් තේ කර්මාන්තශාලාව</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sirendra.html">සිලැන්රා තේ පුද්ගලික සමාගම</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transport.html">සිලැන්රා තේ ප්‍රවාහන අංශය</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="routes.html">දළු මාර්ග</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header container">
+        <span class="eyebrow">🌱 LEAF COLLECTION ROUTES</span>
+        <h1>දළු මාර්ග</h1>
+        <p>ඔබගේ ප්‍රදේශයේ දළු එකතු කිරීමේ නිලධාරීන් අමතන්න.</p>
+
+        <!-- Connection Badge to Sunils -->
+        <a href="sunils.html" class="connection-badge">
+            <i class="fas fa-arrow-left"></i>
+            <span>🔗 සුනිල්ස් තේ කර්මාන්ත ශාලාව වෙත ආපසු</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- ===== PHONE DIRECTORY ===== -->
+    <div class="container">
+        <div class="directory-grid">
+
+            <!-- 1. Waga -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">01</span>
+                <h4>වග (Waga)</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 77335</div>
+                <a href="tel:07635977335" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 2. Handapangoda -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">02</span>
+                <h4>හඳපාන්ගොඩ</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7342</div>
+                <a href="tel:0763597342" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 3. Kalatuwawa -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">03</span>
+                <h4>කලටුවාව</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 695 7344</div>
+                <a href="tel:0766957344" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 4. Karandana -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">04</span>
+                <h4>කරඳන</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7338</div>
+                <a href="tel:0763597338" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 5. Ketepola -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">05</span>
+                <h4>කැටේපොළ</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7339</div>
+                <a href="tel:0763597339" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 6. Horana -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">06</span>
+                <h4>හොරණ</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7338</div>
+                <a href="tel:0763597338" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 7. Manana -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">07</span>
+                <h4>මානාන</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7336</div>
+                <a href="tel:0763597336" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 8. Pokunuwita -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">08</span>
+                <h4>පොකුණුවිට</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 074 272 5766</div>
+                <a href="tel:0742725766" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 9. Halwatura -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">09</span>
+                <h4>හල්වතුර</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7341</div>
+                <a href="tel:0763597341" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 10. Matuwagala -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">10</span>
+                <h4>මාටුවගල</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7340</div>
+                <a href="tel:0763597340" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 11. Dumbara -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">11</span>
+                <h4>දුම්බර</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 359 7343</div>
+                <a href="tel:0763597343" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+            <!-- 12. Kosgama -->
+            <div class="contact-card">
+                <span class="icon">📍</span>
+                <span class="area-number">12</span>
+                <h4>කොස්ගම</h4>
+                <div class="phone"><i class="fas fa-phone-alt"></i> 076 412 6803</div>
+                <a href="tel:0764126803" class="call-btn"><i class="fas fa-phone-volume"></i> අමතන්න</a>
+            </div>
+
+        </div>
+
+        <!-- ===== CTA SECTION: Connect to Sunils ===== -->
+        <div class="cta-section">
+            <h3>🏭 සුනිල්ස් තේ කර්මාන්ත ශාලාව</h3>
+            <p>තේ දළු එකතු කිරීම, මිල ගණන්, සහ සේවා පිළිබඳ වැඩි විස්තර සඳහා කර්මාන්ත ශාලාවට සම්බන්ධ වන්න.</p>
+            <a href="sunils.html" class="btn-sunils">
+                <i class="fas fa-arrow-right"></i> සුනිල්ස් තේ කර්මාන්ත ශාලාවට යන්න <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>© 2026 සුනිල්ස් තේ කර්මාන්ත ශාලාව</div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="tel:+94112222222"><i class="fas fa-phone"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BOOTSTRAP JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- ===== ALL JS ===== -->
+    <script>
+        (function() {
+            "use strict";
+
+            // ============================================================
+            // 1. FLOATING LEAF PARTICLES
+            // ============================================================
+            const leafContainer = document.getElementById('leaf-particles');
+            const leafEmojis = ['🍃', '🌿', '🍂', '🌱'];
+            for (let i = 0; i < 30; i++) {
+                const el = document.createElement('div');
+                el.className = 'leaf-particle';
+                el.textContent = leafEmojis[i % leafEmojis.length];
+                const size = 1.2 + Math.random() * 2.2;
+                el.style.fontSize = size + 'rem';
+                el.style.left = (Math.random() * 100) + '%';
+                el.style.animationDuration = (14 + Math.random() * 22) + 's';
+                el.style.animationDelay = (Math.random() * 18) + 's';
+                el.style.opacity = 0.03 + Math.random() * 0.08;
+                leafContainer.appendChild(el);
+            }
+
+            // ============================================================
+            // 2. CURSOR LEAF
+            // ============================================================
+            const cursorLeaf = document.getElementById('cursor-leaf');
+            let cursorX = -100,
+                cursorY = -100;
+
+            document.addEventListener('mousemove', (e) => {
+                cursorX = e.clientX;
+                cursorY = e.clientY;
+                cursorLeaf.style.left = cursorX + 'px';
+                cursorLeaf.style.top = cursorY + 'px';
+            });
+
+            document.addEventListener('mouseleave', () => cursorLeaf.style.opacity = '0');
+            document.addEventListener('mouseenter', () => cursorLeaf.style.opacity = '1');
+
+            // ============================================================
+            // 3. TRAIL LEAVES
+            // ============================================================
+            const trailContainer = document.getElementById('trail-container');
+            const trailLength = 14;
+            let trailPositions = [];
+            let trailElements = [];
+
+            for (let i = 0; i < trailLength; i++) {
+                const el = document.createElement('div');
+                el.className = 'trail-leaf';
+                el.textContent = ['🍃', '🌿', '🍂', '🌱'][i % 4];
+                const scale = 1 - (i / trailLength) * 0.65;
+                el.style.fontSize = `${20 * scale}px`;
+                el.style.opacity = 0.7 - (i / trailLength) * 0.6;
+                el.style.transform = `rotate(${i * 18}deg)`;
+                trailContainer.appendChild(el);
+                trailElements.push(el);
+                trailPositions.push({ x: -100, y: -100 });
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                trailPositions.unshift({ x: e.clientX, y: e.clientY });
+                trailPositions.pop();
+            });
+
+            let windAngle = 0;
+
+            function updateTrail() {
+                windAngle += 0.025;
+                const wind = Math.sin(windAngle) * 16;
+
+                trailElements.forEach((el, index) => {
+                    const pos = trailPositions[index] || trailPositions[trailPositions.length - 1];
+                    const delayOffset = index * 1.2;
+                    const windOffset = wind * (1 + index * 0.15);
+
+                    el.style.left = (pos.x + windOffset) + 'px';
+                    el.style.top = (pos.y + delayOffset) + 'px';
+                    el.style.transform =
+                        `rotate(${index * 22 + wind * 1.5}deg) scale(${1 - index * 0.035})`;
+                });
+
+                requestAnimationFrame(updateTrail);
+            }
+            updateTrail();
+
+            // ============================================================
+            // 4. FALLING LEAVES
+            // ============================================================
+            const fallingEmojis = ['🍃', '🌿', '🍂', '🌱'];
+
+            function spawnFallingLeaf() {
+                const leaf = document.createElement('div');
+                leaf.className = 'falling-leaf';
+                leaf.textContent = fallingEmojis[Math.floor(Math.random() * fallingEmojis.length)];
+
+                const size = 1.4 + Math.random() * 2.2;
+                leaf.style.fontSize = size + 'rem';
+                leaf.style.left = (Math.random() * 100) + '%';
+
+                const duration = 10 + Math.random() * 16;
+                leaf.style.animationDuration = duration + 's';
+                leaf.style.animationDelay = (Math.random() * 2) + 's';
+
+                document.body.appendChild(leaf);
+
+                setTimeout(() => {
+                    if (leaf.parentNode) leaf.remove();
+                }, (duration + 4) * 1000);
+            }
+
+            for (let i = 0; i < 15; i++) {
+                setTimeout(spawnFallingLeaf, i * 250);
+            }
+
+            setInterval(() => {
+                const count = 1 + Math.floor(Math.random() * 2);
+                for (let i = 0; i < count; i++) {
+                    setTimeout(spawnFallingLeaf, i * 200);
+                }
+            }, 1200);
+
+            console.log('🍃 Leaf Routes – Phone Directory loaded.');
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="si">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2025 දළු මිල ගණන්</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        
+        :root {
+            --tea-green: #4c8b3a;
+            --tea-light: #75b843;
+            --gold: #f5c542;
+            --card-bg: rgba(15, 30, 18, 0.7);
+            --glass-border: rgba(255, 215, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans Sinhala", sans-serif;
+            color: #e8f0e0;
+            overflow-x: hidden;
+            cursor: none;
+            min-height: 100vh;
+
+            /* ===== FULL COVER TEA LEAF BACKGROUND ===== */
+            background-image:
+                linear-gradient(
+                    rgba(8, 18, 10, 0.65),
+                    rgba(8, 18, 10, 0.65)
+                ),
+                url("assets/IMG/tea price bc.png");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        
+        #cursor-leaf {
+            position: fixed;
+            font-size: 2.4rem;
+            pointer-events: none;
+            z-index: 99999;
+            filter: drop-shadow(0 0 25px rgba(117, 184, 67, 0.7));
+            transform: translate(-50%, -50%);
+            transition: transform 0.06s ease;
+        }
+
+        
+        .trail-leaf {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 10px rgba(117, 184, 67, 0.3));
+            will-change: transform;
+        }
+
+        
+        .falling-leaf {
+            position: fixed;
+            top: -60px;
+            pointer-events: none;
+            z-index: 9997;
+            font-size: 2rem;
+            animation: fall linear forwards;
+            will-change: transform;
+            filter: drop-shadow(0 0 18px rgba(117, 184, 67, 0.25));
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-60px) translateX(0) rotate(0deg) scale(0.8);
+                opacity: 0.9;
+            }
+            20% {
+                transform: translateY(20vh) translateX(60px) rotate(120deg) scale(1.1);
+            }
+            40% {
+                transform: translateY(40vh) translateX(-40px) rotate(240deg) scale(0.9);
+            }
+            60% {
+                transform: translateY(60vh) translateX(70px) rotate(360deg) scale(1.05);
+            }
+            80% {
+                transform: translateY(80vh) translateX(-30px) rotate(480deg) scale(0.95);
+            }
+            100% {
+                transform: translateY(110vh) translateX(40px) rotate(600deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        /* ===== GLASS NAVBAR (Tea themed) ===== */
+        .glass-nav {
+            background: rgba(10, 20, 10, 0.7);
+            backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+            z-index: 9996;
+            position: relative;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--gold) !important;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            text-shadow: 0 0 20px rgba(245, 197, 66, 0.15);
+        }
+        .navbar-brand:hover {
+            transform: translateX(-4px);
+        }
+        .navbar-brand i {
+            font-size: 1.6rem;
+            color: var(--tea-light);
+        }
+
+        
+        .page-header {
+            padding: 45px 0 35px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(6px);
+        }
+        .page-header .eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            display: inline-block;
+            margin-bottom: 12px;
+            backdrop-filter: blur(4px);
+        }
+        .page-header h1 {
+            font-weight: 800;
+            color: #ffffff;
+            font-size: 3rem;
+            line-height: 1.15;
+            text-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        }
+        .page-header h1 i {
+            color: var(--gold);
+        }
+        .page-header .lead {
+            font-size: 1.15rem;
+            color: #d4e8d4;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ===== BUS SEAT STYLE BENTO GRID ===== */
+        .bento-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 45px 0 60px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        /* "Bus Seat" Card – plush, tea‑garden cushioned look */
+        .month-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            padding: 24px 16px 26px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 190px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* "Cushion" stitching effect (tea garden seams) */
+        .month-card::after {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border-radius: 22px;
+            border: 1.5px dashed rgba(245, 197, 66, 0.08);
+            pointer-events: none;
+        }
+
+        /* Decorative leaf pattern overlay on cards */
+        .month-card::before {
+            content: "🌿";
+            position: absolute;
+            bottom: -10px;
+            right: -5px;
+            font-size: 5rem;
+            opacity: 0.04;
+            transform: rotate(20deg);
+            pointer-events: none;
+        }
+
+        .month-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow:
+                0 0 45px rgba(245, 197, 66, 0.10),
+                0 16px 48px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            background: rgba(25, 50, 30, 0.85);
+        }
+
+        /* Span classes for bus seat staggered layout */
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        /* Bigger cards for span-2 (like double seats) */
+        .month-card.span-2 {
+            padding: 32px 20px 34px;
+            min-height: 210px;
+        }
+        .month-card.span-2 h3 {
+            font-size: 1.5rem;
+        }
+        .month-card.span-2 .price {
+            font-size: 2.2rem;
+        }
+        .month-card.span-2 .seat-icon {
+            font-size: 2rem;
+        }
+
+        .month-card .seat-icon {
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+        .month-card .month-number {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--gold);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            padding: 2px 14px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .month-card h3 {
+            font-weight: 700;
+            color: #ffffff;
+            margin: 2px 0 10px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.04);
+        }
+        .month-card .price {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 30px rgba(245, 197, 66, 0.08);
+        }
+        .month-card .price small {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a0b8a0;
+            margin-left: 3px;
+        }
+        .month-card .unit {
+            display: block;
+            font-size: 0.75rem;
+            color: #7a907a;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+       
+        @media (max-width: 820px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .bento-grid {
+                gap: 16px;
+                padding: 0 16px;
+            }
+            .month-card {
+                padding: 18px 12px 20px;
+                min-height: 160px;
+            }
+            .month-card h3 {
+                font-size: 1rem;
+            }
+            .month-card .price {
+                font-size: 1.4rem;
+            }
+            .month-card.span-2 {
+                padding: 22px 16px 24px;
+                min-height: 180px;
+            }
+            .month-card.span-2 h3 {
+                font-size: 1.2rem;
+            }
+            .month-card.span-2 .price {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .span-2 {
+                grid-column: span 1;
+            }
+            .month-card {
+                padding: 14px 10px 16px;
+                min-height: 130px;
+                border-radius: 20px;
+            }
+            .month-card h3 {
+                font-size: 0.9rem;
+                margin-bottom: 4px;
+            }
+            .month-card .price {
+                font-size: 1.2rem;
+            }
+            .month-card .price small {
+                font-size: 0.6rem;
+            }
+            .month-card .unit {
+                font-size: 0.65rem;
+            }
+            .month-card .seat-icon {
+                font-size: 1.2rem;
+            }
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            #cursor-leaf {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .bento-grid {
+                gap: 10px;
+            }
+            .month-card {
+                padding: 10px 6px 12px;
+                min-height: 110px;
+                border-radius: 16px;
+            }
+            .month-card h3 {
+                font-size: 0.75rem;
+            }
+            .month-card .price {
+                font-size: 1rem;
+            }
+            .month-card .price small {
+                font-size: 0.5rem;
+            }
+            .month-card .unit {
+                font-size: 0.55rem;
+                margin-top: 2px;
+            }
+            .month-card .month-number {
+                font-size: 0.55rem;
+                padding: 0 8px;
+            }
+            .page-header h1 {
+                font-size: 1.4rem;
+            }
+            .page-header .lead {
+                font-size: 0.9rem;
+            }
+        }
+
+        
+        .footer {
+            background: rgba(5, 13, 5, 0.7);
+            backdrop-filter: blur(8px);
+            color: #6a806a;
+            padding: 22px 0;
+            border-top: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 1;
+        }
+        .socials {
+            display: flex;
+            gap: 12px;
+        }
+        .socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.04);
+            color: #a0b8a0;
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 215, 0, 0.06);
+            cursor: none;
+        }
+        .socials a:hover {
+            background: var(--gold);
+            color: #0a140a;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(245, 197, 66, 0.2);
+        }
+
+        
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a140a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div id="cursor-leaf">🍃</div>
+
+    
+    <div id="trail-container"></div>
+
+    
+    <nav class="navbar glass-nav">
+        <div class="container">
+            <a class="navbar-brand" href="sunils.html">
+                <i class="bi bi-arrow-left-circle"></i> සුනිල්ස් තේ කර්මාන්තශාලාව 
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <header class="page-header">
+        <div class="container">
+            <span class="eyebrow">🍃 TEA LEAF PRICE · 2025</span>
+            <h1><i class="bi bi-grid-3x3-gap-fill"></i> 2025 දළු මිල ගණන්</h1>
+            <p class="lead">
+                ඔබගේ ගුණාත්මක තේ දළු සඳහා ඉහල මිලක් 
+            </p>
+        </div>
+    </header>
+
+    <!-- ===== BUS SEAT BENTO GRID ===== -->
+    <section class="bento-wrapper">
+        <div class="bento-grid">
+
+            <!-- Row 1: 1, 2, 3, 4 (4 seater) -->
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">01</span>
+                <h3>ජනවාරි</h3>
+                <div class="price">රු. 205.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">02</span>
+                <h3>පෙබරවාරි</h3>
+                <div class="price">රු. 206.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">03</span>
+                <h3>මාර්තු</h3>
+                <div class="price">රු. 201.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">04</span>
+                <h3>අප්‍රේල්</h3>
+                <div class="price">රු. 190.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+
+            <!-- Row 2: 5 (span 2), 6, 7 (staggered 2+1+1) -->
+            <div class="month-card span-2">
+                <span class="seat-icon">🌿</span>
+                <span class="month-number">05</span>
+                <h3>මැයි</h3>
+                <div class="price">රු. 195.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">06</span>
+                <h3>ජූනි</h3>
+                <div class="price">රු. 175.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">07</span>
+                <h3>ජූලි</h3>
+                <div class="price">රු. 200.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+
+            <!-- Row 3: 8, 9, 10 (span 2) (staggered 1+1+2) -->
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">08</span>
+                <h3>අගෝස්තු</h3>
+                <div class="price">රු. 200.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card">
+                <span class="seat-icon">🍃</span>
+                <span class="month-number">09</span>
+                <h3>සැප්තැම්බර්</h3>
+                <div class="price">රු. 200.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card span-2">
+                <span class="seat-icon">🌿</span>
+                <span class="month-number">10</span>
+                <h3>ඔක්තෝබර්</h3>
+                <div class="price">රු. 190.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+
+            <!-- Row 4: 11 (span 2), 12 (span 2) (2+2 bus seat) -->
+            <div class="month-card span-2">
+                <span class="seat-icon">🌿</span>
+                <span class="month-number">11</span>
+                <h3>නොවැම්බර්</h3>
+                <div class="price">රු. 197.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+            <div class="month-card span-2">
+                <span class="seat-icon">🌿</span>
+                <span class="month-number">12</span>
+                <h3>දෙසැම්බර්</h3>
+                <div class="price">රු. 200.00 <small>/kg</small></div>
+                <span class="unit">කිලෝග්‍රෑම් 1කට</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <span>© 2026 සුනිල්ස් තේ කර්මාන්ත ශාලාව</span>
+                <span class="d-none d-sm-inline opacity-50">|</span>
+                <span class="opacity-75 small"><i class="bi bi-bus-front"></i>© Sunils Tea Factory Media Unit</span>
+            </div>
+            <div class="socials">
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="tel:+94112222222" aria-label="Hotline"><i class="bi bi-telephone"></i></a>
+                <a href="https://wa.me/94770000000" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BOOTSTRAP JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- ===== TEA LEAF EFFECTS ===== -->
+    <script>
+        (function() {
+            "use strict";
+
+            // ---- CURSOR LEAF ----
+            const cursorLeaf = document.getElementById('cursor-leaf');
+            let cursorX = -100,
+                cursorY = -100;
+
+            document.addEventListener('mousemove', (e) => {
+                cursorX = e.clientX;
+                cursorY = e.clientY;
+                cursorLeaf.style.left = cursorX + 'px';
+                cursorLeaf.style.top = cursorY + 'px';
+            });
+
+            document.addEventListener('mouseleave', () => cursorLeaf.style.opacity = '0');
+            document.addEventListener('mouseenter', () => cursorLeaf.style.opacity = '1');
+
+            // ---- TRAIL LEAVES ----
+            const trailContainer = document.getElementById('trail-container');
+            const trailLength = 14;
+            let trailPositions = [];
+            let trailElements = [];
+
+            for (let i = 0; i < trailLength; i++) {
+                const el = document.createElement('div');
+                el.className = 'trail-leaf';
+                el.textContent = ['🍃', '🌿', '🍂', '🌱'][i % 4];
+                const scale = 1 - (i / trailLength) * 0.65;
+                el.style.fontSize = `${24 * scale}px`;
+                el.style.opacity = 0.75 - (i / trailLength) * 0.65;
+                el.style.transform = `rotate(${i * 18}deg)`;
+                trailContainer.appendChild(el);
+                trailElements.push(el);
+                trailPositions.push({ x: -100, y: -100 });
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                trailPositions.unshift({ x: e.clientX, y: e.clientY });
+                trailPositions.pop();
+            });
+
+            let windAngle = 0;
+
+            function updateTrail() {
+                windAngle += 0.025;
+                const wind = Math.sin(windAngle) * 18;
+
+                trailElements.forEach((el, index) => {
+                    const pos = trailPositions[index] || trailPositions[trailPositions.length - 1];
+                    const delayOffset = index * 1.2;
+                    const windOffset = wind * (1 + index * 0.15);
+
+                    el.style.left = (pos.x + windOffset) + 'px';
+                    el.style.top = (pos.y + delayOffset) + 'px';
+                    el.style.transform =
+                        `rotate(${index * 22 + wind * 1.5}deg) scale(${1 - index * 0.035})`;
+                });
+
+                requestAnimationFrame(updateTrail);
+            }
+            updateTrail();
+
+            // ---- FALLING LEAVES ----
+            const leafEmojis = ['🍃', '🌿', '🍂', '🌱'];
+
+            function spawnLeaf() {
+                const leaf = document.createElement('div');
+                leaf.className = 'falling-leaf';
+                leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
+
+                const size = 20 + Math.random() * 36;
+                leaf.style.fontSize = size + 'px';
+                leaf.style.left = (Math.random() * 100) + '%';
+
+                const duration = 8 + Math.random() * 14;
+                leaf.style.animationDuration = duration + 's';
+                leaf.style.animationDelay = (Math.random() * 3) + 's';
+                leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+                document.body.appendChild(leaf);
+
+                setTimeout(() => {
+                    if (leaf.parentNode) leaf.remove();
+                }, (duration + 4) * 1000);
+            }
+
+            for (let i = 0; i < 25; i++) {
+                setTimeout(spawnLeaf, i * 180);
+            }
+
+            setInterval(() => {
+                const count = 1 + Math.floor(Math.random() * 2);
+                for (let i = 0; i < count; i++) {
+                    setTimeout(spawnLeaf, i * 150);
+                }
+            }, 900);
+
+            console.log('🍃 Tea leaf bus seat bento fully loaded.');
+
+        })();
+    </script>
+
+</body>
+</html>
