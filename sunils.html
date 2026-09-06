@@ -232,7 +232,7 @@
         }
         .section-title p {
             font-size: 0.95rem;
-            color: rgba(220, 235, 220, 0.85);
+            color: rgba(255, 255, 255, 0.92);
             max-width: 500px;
             margin: 0 auto;
             font-weight: 400;
@@ -335,7 +335,7 @@
         }
         .service-card small {
             font-size: 0.75rem;
-            color: rgba(180, 210, 180, 0.8);
+            color: rgba(200, 230, 200, 0.8);
             font-weight: 500;
             letter-spacing: 0.3px;
         }
@@ -388,7 +388,7 @@
             flex-wrap: wrap;
         }
         .service-panel p {
-            color: rgba(220, 235, 220, 0.92);
+            color: rgba(255, 255, 255, 0.93);
             font-size: 0.95rem;
             line-height: 1.7;
             max-width: 600px;
@@ -437,7 +437,7 @@
 
         .empty-panel {
             text-align: center;
-            color: rgba(180, 210, 180, 0.5);
+            color: rgba(200, 230, 200, 0.5);
             padding: 30px 16px;
             font-size: 1rem;
             letter-spacing: 0.3px;
@@ -454,7 +454,7 @@
         .footer {
             background: rgba(5, 13, 5, 0.6);
             backdrop-filter: blur(8px);
-            color: rgba(180, 210, 180, 0.6);
+            color: rgba(200, 230, 200, 0.6);
             padding: 16px 0;
             border-top: 1px solid var(--border-glass);
             position: relative;
@@ -471,7 +471,7 @@
             height: 32px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.03);
-            color: rgba(180, 210, 180, 0.5);
+            color: rgba(200, 230, 200, 0.5);
             display: grid;
             place-items: center;
             text-decoration: none;
@@ -497,13 +497,14 @@
         .carousel-indicators [data-bs-target] {
             background-color: var(--gold);
         }
-        .carousel-inner .img-placeholder {
-            height: 320px;
-            min-height: unset;
-            font-size: 4rem;
+        .carousel-inner img {
+            height: 420px;
+            object-fit: cover;
+            width: 100%;
+            background: #1a4025;
         }
 
-        /* ===== IMAGE PLACEHOLDER STYLES ===== */
+        /* ===== IMAGE PLACEHOLDER STYLES (fallback) ===== */
         .img-placeholder {
             background: linear-gradient(135deg, #1a4025, #2d5a3a);
             display: flex;
@@ -538,7 +539,7 @@
             font-size: 1rem;
         }
         .tourism-highlight p {
-            color: rgba(220, 235, 220, 0.88) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-size: 0.88rem !important;
             margin-bottom: 0;
         }
@@ -562,12 +563,12 @@
         }
         .process-step h6 {
             font-weight: 700;
-            color: #e8f0e0;
+            color: #ffffff;
             font-size: 0.85rem;
             margin-bottom: 0;
         }
         .process-step small {
-            color: rgba(180, 210, 180, 0.7);
+            color: rgba(200, 230, 200, 0.7);
             font-size: 0.7rem;
         }
 
@@ -584,11 +585,11 @@
             font-size: 1.1rem;
         }
         .guide-box p {
-            color: rgba(220, 235, 220, 0.9) !important;
+            color: rgba(255, 255, 255, 0.92) !important;
             font-size: 0.9rem !important;
         }
         .guide-box ol {
-            color: rgba(220, 235, 220, 0.88);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.88rem;
             padding-left: 1.4rem;
             line-height: 1.7;
@@ -597,7 +598,9 @@
             margin-bottom: 4px;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ============================================================ */
+        /* ===== ENHANCED MOBILE RESPONSIVE STYLES ===== */
+        /* ============================================================ */
 
         /* Tablets & small laptops */
         @media (max-width: 992px) {
@@ -617,8 +620,8 @@
             .section-title h1 {
                 font-size: 2rem;
             }
-            .carousel-inner .img-placeholder {
-                height: 280px;
+            .carousel-inner img {
+                height: 340px;
             }
         }
 
@@ -632,14 +635,15 @@
                 margin-right: auto;
             }
             .service-card {
-                min-height: 120px;
-                padding: 18px 14px;
+                min-height: 100px;
+                padding: 16px 14px;
                 border-radius: 20px;
                 flex-direction: row;
-                justify-content: center;
+                justify-content: flex-start;
                 gap: 14px;
                 text-align: left;
                 align-items: center;
+                background-color: rgba(15, 42, 22, 0.6);
             }
             .service-card span {
                 font-size: 2rem;
@@ -679,6 +683,7 @@
             }
             .section-title p {
                 font-size: 0.85rem;
+                color: rgba(255, 255, 255, 0.88);
             }
 
             .service-panel {
@@ -693,6 +698,7 @@
             .service-panel p {
                 font-size: 0.88rem;
                 line-height: 1.6;
+                color: rgba(255, 255, 255, 0.92);
             }
             .service-panel .panel-actions {
                 gap: 8px;
@@ -705,18 +711,8 @@
             .service-panel .row img {
                 height: 70px;
             }
-            .carousel-inner .img-placeholder {
-                height: 220px;
-                font-size: 3rem;
-            }
-
-            .img-placeholder {
-                min-height: 70px;
-                font-size: 2rem;
-            }
-            .img-placeholder-sm {
-                min-height: 55px;
-                font-size: 1.4rem;
+            .carousel-inner img {
+                height: 280px !important;
             }
 
             .guide-box {
@@ -781,13 +777,20 @@
             }
             .section-title p {
                 font-size: 0.78rem;
+                color: rgba(255, 255, 255, 0.85);
             }
 
+            .service-grid {
+                gap: 10px;
+                max-width: 100%;
+                padding: 0 4px;
+            }
             .service-card {
-                min-height: 90px;
+                min-height: 80px;
                 padding: 12px 12px;
                 border-radius: 16px;
                 gap: 10px;
+                background-color: rgba(15, 42, 22, 0.7);
             }
             .service-card span {
                 font-size: 1.6rem;
@@ -825,6 +828,7 @@
             .service-panel p {
                 font-size: 0.8rem;
                 line-height: 1.5;
+                color: rgba(255, 255, 255, 0.92);
             }
             .service-panel .panel-actions {
                 gap: 6px;
@@ -842,19 +846,8 @@
                 border-radius: 10px;
             }
 
-            .carousel-inner .img-placeholder {
-                height: 170px;
-                font-size: 2.2rem;
-            }
-
-            .img-placeholder {
-                min-height: 55px;
-                font-size: 1.6rem;
-                border-radius: 10px;
-            }
-            .img-placeholder-sm {
-                min-height: 45px;
-                font-size: 1.2rem;
+            .carousel-inner img {
+                height: 200px !important;
             }
 
             .guide-box {
@@ -933,7 +926,7 @@
             }
         }
 
-        /* Extra small (very old phones) */
+        /* Extra small */
         @media (max-width: 360px) {
             .section-title h1 {
                 font-size: 1.2rem;
@@ -950,9 +943,8 @@
             .service-panel p {
                 font-size: 0.72rem;
             }
-            .carousel-inner .img-placeholder {
-                height: 140px;
-                font-size: 1.8rem;
+            .carousel-inner img {
+                height: 160px !important;
             }
             .navbar-brand {
                 font-size: 0.62rem;
@@ -1105,13 +1097,20 @@
             // ---- SERVICE PANEL DATA ----
             const panel = document.getElementById("servicePanel");
 
-            function placeholderImages(count, cols, emoji) {
+            // Helper: create image grid with your local images (assets/TT/6.jpg through 10.jpg)
+            function createImageGrid(count, cols, startIndex) {
                 let html = '<div class="row g-2">';
-                for (let i = 1; i <= count; i++) {
+                for (let i = 0; i < count; i++) {
+                    const num = startIndex + i;
                     html += `
                                 <div class="col-6 col-md-${cols}">
-                                    <div class="img-placeholder img-placeholder-sm">
-                                        ${emoji || '🍃'}
+                                    <img src="assets/TT/${num}.jpg"
+                                         class="img-fluid rounded-3"
+                                         alt="Tea image ${num}"
+                                         style="width:100%; height:100px; object-fit:cover; border-radius:12px;"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="img-placeholder img-placeholder-sm" style="display:none; height:100px;">
+                                        🍃
                                     </div>
                                 </div>
                             `;
@@ -1147,7 +1146,7 @@
                             </div>
                             <div class="mt-4">
                                 <h5 class="fw-bold" style="color:var(--gold); font-size:0.95rem;">📸 සේවා ඡායාරූප</h5>
-                                ${placeholderImages(5, 2, '🌱')}
+                                ${createImageGrid(5, 2, 6)}
                             </div>`,
 
                 tourism: `
@@ -1245,25 +1244,25 @@
                                 <p class="mb-0">☕ <strong>Experience the story of Ceylon Tea with us.</strong></p>
                             </div>
 
-                            <!-- PHOTO SLIDESHOW -->
+                            <!-- PHOTO SLIDESHOW — FIXED: now uses your assets/TT/1.jpg through 5.jpg -->
                             <div class="mt-4">
                                 <h4 class="fw-bold mb-3" style="color:var(--gold); font-size:1.05rem;">📸 තේ සංචාරක ඡායාරූප</h4>
                                 <div id="teaTourismCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                                     <div class="carousel-inner rounded-4 overflow-hidden">
                                         <div class="carousel-item active">
-                                            <div class="assets\TT\1.jpg style="height:320px; min-height:unset; font-size:5rem;">🌿</div>
+                                            <img src="assets/TT/1.jpg" class="d-block w-100" alt="Tea Tourism 1" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌿</div>'">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🍃</div>
+                                            <img src="assets/TT/2.jpg" class="d-block w-100" alt="Tea Tourism 2" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🍃</div>'">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🌱</div>
+                                            <img src="assets/TT/3.jpg" class="d-block w-100" alt="Tea Tourism 3" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌱</div>'">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🍂</div>
+                                            <img src="assets/TT/4.jpg" class="d-block w-100" alt="Tea Tourism 4" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🍂</div>'">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🌿</div>
+                                            <img src="assets/TT/5.jpg" class="d-block w-100" alt="Tea Tourism 5" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌿</div>'">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="prev">
@@ -1289,7 +1288,7 @@
                                 <a class="action-btn" href="tel:+94763335365">📞 සංචාරක සේවාව අමතන්න / Contact Tea Tourism</a>
                             </div>
                             <div class="mt-3 text-center">
-                                <small style="color:rgba(180,210,180,0.7); font-size:0.75rem;">🌿 <strong>Sunils Tea Factory</strong> – Experience the journey of Ceylon Tea.</small>
+                                <small style="color:rgba(200,230,200,0.7); font-size:0.75rem;">🌿 <strong>Sunils Tea Factory</strong> – Experience the journey of Ceylon Tea.</small>
                             </div>`
             };
 
@@ -1316,11 +1315,22 @@
                         }
                         // Fix carousel image heights on mobile after render
                         setTimeout(() => {
-                            const imgs = carouselEl.querySelectorAll('.img-placeholder');
+                            const imgs = carouselEl.querySelectorAll('img');
+                            const width = window.innerWidth;
+                            let height = 420;
+                            if (width < 480) height = 200;
+                            else if (width < 768) height = 280;
+                            else if (width < 992) height = 340;
                             imgs.forEach(img => {
-                                img.style.height = '320px';
+                                img.style.height = height + 'px';
                             });
-                        }, 100);
+                            // Also fix fallback placeholders
+                            const placeholders = carouselEl.querySelectorAll('.img-placeholder');
+                            placeholders.forEach(el => {
+                                el.style.height = height + 'px';
+                                el.style.minHeight = 'unset';
+                            });
+                        }, 150);
                     }
 
                     panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -1340,17 +1350,27 @@
 
             // ---- FIX CAROUSEL HEIGHT ON RESIZE ----
             function fixCarouselHeights() {
-                const imgs = document.querySelectorAll('#teaTourismCarousel .img-placeholder');
-                const isMobile = window.innerWidth < 768;
-                const height = isMobile ? 200 : 320;
+                const carouselEl = document.getElementById('teaTourismCarousel');
+                if (!carouselEl) return;
+                const imgs = carouselEl.querySelectorAll('img');
+                const placeholders = carouselEl.querySelectorAll('.img-placeholder');
+                const width = window.innerWidth;
+                let height = 420;
+                if (width < 480) height = 200;
+                else if (width < 768) height = 280;
+                else if (width < 992) height = 340;
                 imgs.forEach(img => {
                     img.style.height = height + 'px';
+                });
+                placeholders.forEach(el => {
+                    el.style.height = height + 'px';
+                    el.style.minHeight = 'unset';
                 });
             }
             window.addEventListener('resize', fixCarouselHeights);
             setTimeout(fixCarouselHeights, 500);
 
-            console.log('🍃 Sunils Tea Factory – rewritten and working');
+            console.log('🍃 Sunils Tea Factory – fixed carousel images, now using assets/TT/1.jpg – 5.jpg');
         })();
     </script>
 
