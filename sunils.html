@@ -1097,7 +1097,7 @@
             // ---- SERVICE PANEL DATA ----
             const panel = document.getElementById("servicePanel");
 
-            // Helper: create image grid with your local images (assets/TT/6.jpg through 10.jpg)
+            // Helper: create image grid with your local assets/TT/ images
             function createImageGrid(count, cols, startIndex) {
                 let html = '<div class="row g-2">';
                 for (let i = 0; i < count; i++) {
@@ -1244,7 +1244,7 @@
                                 <p class="mb-0">☕ <strong>Experience the story of Ceylon Tea with us.</strong></p>
                             </div>
 
-                            <!-- PHOTO SLIDESHOW — FIXED: now uses your assets/TT/1.jpg through 5.jpg -->
+                            <!-- PHOTO SLIDESHOW — uses your assets/TT/1.jpg through 5.jpg -->
                             <div class="mt-4">
                                 <h4 class="fw-bold mb-3" style="color:var(--gold); font-size:1.05rem;">📸 තේ සංචාරක ඡායාරූප</h4>
                                 <div id="teaTourismCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -1370,7 +1370,7 @@
             window.addEventListener('resize', fixCarouselHeights);
             setTimeout(fixCarouselHeights, 500);
 
-            console.log('🍃 Sunils Tea Factory – fixed carousel images, now using assets/TT/1.jpg – 5.jpg');
+            console.log('🍃 Sunils Tea Factory – using your local images from assets/TT/');
         })();
     </script>
 
