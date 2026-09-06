@@ -494,9 +494,10 @@
         .carousel-inner img {
             height: 420px;
             object-fit: cover;
+            width: 100%;
         }
 
-        /* ===== IMAGE PLACEHOLDER STYLES ===== */
+        /* ===== IMAGE PLACEHOLDER STYLES (kept for fallback) ===== */
         .img-placeholder {
             background: linear-gradient(135deg, #1a4025, #2d5a3a);
             display: flex;
@@ -619,10 +620,6 @@
             .carousel-inner img {
                 height: 340px;
             }
-            .img-placeholder {
-                min-height: 100px;
-                font-size: 2.5rem;
-            }
         }
 
         /* Mobile landscape & tablets */
@@ -718,16 +715,6 @@
                 height: 280px !important;
             }
 
-            .img-placeholder {
-                min-height: 80px;
-                font-size: 2.2rem;
-                border-radius: 12px;
-            }
-            .img-placeholder-sm {
-                min-height: 60px;
-                font-size: 1.6rem;
-            }
-
             .guide-box {
                 padding: 18px 16px;
             }
@@ -776,12 +763,6 @@
                 width: 32px;
                 height: 32px;
                 font-size: 0.75rem;
-            }
-
-            /* fix carousel height for mobile */
-            #teaTourismCarousel .img-placeholder {
-                height: 280px !important;
-                min-height: unset !important;
             }
         }
 
@@ -869,16 +850,6 @@
                 height: 200px !important;
             }
 
-            .img-placeholder {
-                min-height: 60px;
-                font-size: 1.8rem;
-                border-radius: 10px;
-            }
-            .img-placeholder-sm {
-                min-height: 50px;
-                font-size: 1.3rem;
-            }
-
             .guide-box {
                 padding: 14px 12px;
                 border-radius: 14px;
@@ -953,13 +924,6 @@
             .empty-panel::before {
                 font-size: 1.6rem;
             }
-
-            /* fix carousel height for small phones */
-            #teaTourismCarousel .img-placeholder {
-                height: 200px !important;
-                min-height: unset !important;
-                font-size: 3rem !important;
-            }
         }
 
         /* Extra small */
@@ -984,10 +948,6 @@
             }
             .navbar-brand {
                 font-size: 0.7rem;
-            }
-            #teaTourismCarousel .img-placeholder {
-                height: 160px !important;
-                font-size: 2.2rem !important;
             }
         }
 
@@ -1137,15 +1097,17 @@
             // ---- SERVICE PANEL DATA ----
             const panel = document.getElementById("servicePanel");
 
-            // Helper: create placeholder image grid
-            function placeholderImages(count, cols, emoji) {
+            // Helper: create image grid with real images (picsum.photos placeholders)
+            function placeholderImages(count, cols, seedBase) {
                 let html = '<div class="row g-2">';
                 for (let i = 1; i <= count; i++) {
+                    const seed = seedBase + i;
                     html += `
                                 <div class="col-6 col-md-${cols}">
-                                    <div class="img-placeholder img-placeholder-sm">
-                                        ${emoji || '🍃'}
-                                    </div>
+                                    <img src="https://picsum.photos/seed/${seed}/400/300" 
+                                         class="img-fluid rounded-3" 
+                                         alt="Tea image ${i}"
+                                         style="width:100%; height:120px; object-fit:cover; border-radius:12px;">
                                 </div>
                             `;
                 }
@@ -1180,7 +1142,7 @@
                             </div>
                             <div class="mt-4">
                                 <h5 class="fw-bold" style="color:var(--gold);">📸 සේවා ඡායාරූප</h5>
-                                ${placeholderImages(5, 2, '🌱')}
+                                ${placeholderImages(5, 2, 'leafimg')}
                             </div>`,
 
                 tourism: `
@@ -1278,25 +1240,25 @@
                                 <p class="mb-0">☕ <strong>Experience the story of Ceylon Tea with us.</strong></p>
                             </div>
 
-                            <!-- PHOTO SLIDESHOW -->
+                            <!-- PHOTO SLIDESHOW (now with real images) -->
                             <div class="mt-5">
                                 <h4 class="fw-bold mb-3" style="color:var(--gold);">📸 තේ සංචාරක ඡායාරූප</h4>
                                 <div id="teaTourismCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                                     <div class="carousel-inner rounded-4 overflow-hidden">
                                         <div class="carousel-item active">
-                                            <div class="img-placeholder" style="height:420px; font-size:5rem; min-height:unset;">🌿</div>
+                                            <img src="https://picsum.photos/seed/teatour1/800/500" class="d-block w-100" alt="Tea Tourism 1" style="height:420px; object-fit:cover;">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:420px; font-size:5rem; min-height:unset;">🍃</div>
+                                            <img src="https://picsum.photos/seed/teatour2/800/500" class="d-block w-100" alt="Tea Tourism 2" style="height:420px; object-fit:cover;">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:420px; font-size:5rem; min-height:unset;">🌱</div>
+                                            <img src="https://picsum.photos/seed/teatour3/800/500" class="d-block w-100" alt="Tea Tourism 3" style="height:420px; object-fit:cover;">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:420px; font-size:5rem; min-height:unset;">🍂</div>
+                                            <img src="https://picsum.photos/seed/teatour4/800/500" class="d-block w-100" alt="Tea Tourism 4" style="height:420px; object-fit:cover;">
                                         </div>
                                         <div class="carousel-item">
-                                            <div class="img-placeholder" style="height:420px; font-size:5rem; min-height:unset;">🌿</div>
+                                            <img src="https://picsum.photos/seed/teatour5/800/500" class="d-block w-100" alt="Tea Tourism 5" style="height:420px; object-fit:cover;">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="prev">
@@ -1349,12 +1311,11 @@
                         }
                         // Fix carousel image heights on mobile after render
                         setTimeout(() => {
-                            const imgs = carouselEl.querySelectorAll('.img-placeholder');
+                            const imgs = carouselEl.querySelectorAll('img');
                             const isMobile = window.innerWidth < 768;
                             const height = isMobile ? (window.innerWidth < 480 ? 200 : 280) : 420;
                             imgs.forEach(img => {
                                 img.style.height = height + 'px';
-                                img.style.minHeight = 'unset';
                             });
                         }, 150);
                     }
@@ -1378,7 +1339,7 @@
             function fixCarouselHeights() {
                 const carouselEl = document.getElementById('teaTourismCarousel');
                 if (!carouselEl) return;
-                const imgs = carouselEl.querySelectorAll('.img-placeholder');
+                const imgs = carouselEl.querySelectorAll('img');
                 const width = window.innerWidth;
                 let height = 420;
                 if (width < 480) height = 200;
@@ -1386,13 +1347,12 @@
                 else if (width < 992) height = 340;
                 imgs.forEach(img => {
                     img.style.height = height + 'px';
-                    img.style.minHeight = 'unset';
                 });
             }
             window.addEventListener('resize', fixCarouselHeights);
             setTimeout(fixCarouselHeights, 500);
 
-            console.log('🍃 Sunils Tea Factory – rewritten and working');
+            console.log('🍃 Sunils Tea Factory – using real images (picsum.photos) – replace URLs with your own.');
         })();
     </script>
 
