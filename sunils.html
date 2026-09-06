@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ===== ROOT VARIABLES (Tea Leaf Theme – No Background Image) ===== */
+        /* ===== ROOT VARIABLES ===== */
         :root {
             --tea-dark: #0f2a16;
             --tea-mid: #1f4028;
@@ -36,11 +36,10 @@
             background: radial-gradient(ellipse at 20% 50%, #1a4025 0%, var(--tea-dark) 70%);
             color: #e8f0e0;
             overflow-x: hidden;
-            cursor: none;
             position: relative;
         }
 
-        /* ===== FULL PAGE LEAF PATTERN OVERLAY (Pure CSS, no image) ===== */
+        /* ===== FULL PAGE LEAF PATTERN OVERLAY ===== */
         body::before {
             content: "";
             position: fixed;
@@ -59,7 +58,7 @@
                 radial-gradient(circle at 95% 40%, rgba(75, 139, 58, 0.03) 0%, transparent 30%);
         }
 
-        /* ===== FLOATING LEAF PARTICLES (CSS only) ===== */
+        /* ===== FLOATING LEAF PARTICLES ===== */
         .leaf-particle {
             position: fixed;
             font-size: 1.8rem;
@@ -94,30 +93,7 @@
             }
         }
 
-        /* ===== CUSTOM LEAF CURSOR ===== */
-        #cursor-leaf {
-            position: fixed;
-            font-size: 2.2rem;
-            pointer-events: none;
-            z-index: 99999;
-            filter: drop-shadow(0 0 30px rgba(117, 184, 67, 0.5));
-            transform: translate(-50%, -50%);
-            transition: transform 0.06s ease;
-        }
-
-        /* ===== TRAIL LEAVES (follow cursor with wind) ===== */
-        .trail-leaf {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            font-size: 1rem;
-            opacity: 0.6;
-            transform: translate(-50%, -50%);
-            filter: drop-shadow(0 0 8px rgba(117, 184, 67, 0.2));
-            will-change: transform;
-        }
-
-        /* ===== FALLING LEAVES (top to bottom) ===== */
+        /* ===== FALLING LEAVES ===== */
         .falling-leaf {
             position: fixed;
             top: -60px;
@@ -254,12 +230,13 @@
         }
         .section-title p {
             font-size: 1.05rem;
-            color: rgba(200, 215, 200, 0.8);
+            color: rgba(255, 255, 255, 0.92);
             max-width: 500px;
             margin: 0 auto;
+            font-weight: 400;
         }
 
-        /* ===== SERVICE GRID (Bus Seat Bento Style) ===== */
+        /* ===== SERVICE GRID ===== */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -277,18 +254,21 @@
             padding: 32px 20px 30px;
             text-align: center;
             transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: none;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 4px;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             position: relative;
             overflow: hidden;
             min-height: 200px;
             color: #e8f0e0;
+            background-color: rgba(15, 42, 22, 0.5);
+            border: none;
+            outline: none;
+            font-family: inherit;
+            width: 100%;
         }
 
         .service-card::before {
@@ -326,10 +306,7 @@
         .service-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: rgba(212, 168, 67, 0.2);
-            box-shadow:
-                0 0 50px rgba(117, 184, 67, 0.06),
-                0 16px 48px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 50px rgba(117, 184, 67, 0.06), 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
             background: rgba(30, 60, 35, 0.6);
         }
 
@@ -354,7 +331,7 @@
         }
         .service-card small {
             font-size: 0.85rem;
-            color: rgba(168, 200, 168, 0.7);
+            color: rgba(200, 230, 200, 0.75);
             font-weight: 500;
             letter-spacing: 0.3px;
         }
@@ -404,12 +381,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-wrap: wrap;
         }
         .service-panel p {
-            color: rgba(200, 215, 200, 0.85);
+            color: rgba(255, 255, 255, 0.93);
             font-size: 1.05rem;
             line-height: 1.7;
             max-width: 600px;
+            font-weight: 400;
         }
         .service-panel .panel-actions {
             display: flex;
@@ -428,7 +407,10 @@
             font-weight: 600;
             transition: all 0.25s ease;
             backdrop-filter: blur(4px);
-            cursor: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            text-align: center;
         }
         .service-panel .action-btn:hover {
             background: rgba(117, 184, 67, 0.2);
@@ -451,7 +433,7 @@
 
         .empty-panel {
             text-align: center;
-            color: rgba(168, 200, 168, 0.5);
+            color: rgba(200, 230, 200, 0.5);
             padding: 40px 20px;
             font-size: 1.1rem;
             letter-spacing: 0.3px;
@@ -462,6 +444,75 @@
             display: block;
             margin-bottom: 10px;
             opacity: 0.3;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(5, 13, 5, 0.6);
+            backdrop-filter: blur(8px);
+            color: rgba(200, 230, 200, 0.6);
+            padding: 20px 0;
+            border-top: 1px solid var(--border-glass);
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+        }
+        .socials {
+            display: flex;
+            gap: 10px;
+        }
+        .socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(200, 230, 200, 0.5);
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid var(--border-glass);
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .socials a:hover {
+            background: var(--gold);
+            color: #0a140a;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.15);
+            border-color: var(--gold);
+        }
+
+        /* ===== CAROUSEL ===== */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.8));
+        }
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--gold);
+        }
+        .carousel-inner img {
+            height: 420px;
+            object-fit: cover;
+            width: 100%;
+            background: #1a4025;
+        }
+
+        /* ===== IMAGE PLACEHOLDER STYLES (fallback) ===== */
+        .img-placeholder {
+            background: linear-gradient(135deg, #1a4025, #2d5a3a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: rgba(255, 255, 255, 0.15);
+            min-height: 100px;
+            border-radius: 14px;
+            border: 1px solid var(--border-glass);
+        }
+        .img-placeholder-sm {
+            min-height: 70px;
+            font-size: 1.8rem;
         }
 
         /* ===== TOURISM HIGHLIGHT CARDS ===== */
@@ -482,7 +533,7 @@
             font-size: 1rem;
         }
         .tourism-highlight p {
-            color: rgba(200, 215, 200, 0.88) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-size: 0.88rem !important;
             margin-bottom: 0;
         }
@@ -506,12 +557,12 @@
         }
         .process-step h6 {
             font-weight: 700;
-            color: #e8f0e0;
+            color: #ffffff;
             font-size: 0.85rem;
             margin-bottom: 0;
         }
         .process-step small {
-            color: rgba(168, 200, 168, 0.7);
+            color: rgba(200, 230, 200, 0.7);
             font-size: 0.7rem;
         }
 
@@ -528,11 +579,11 @@
             font-size: 1.1rem;
         }
         .guide-box p {
-            color: rgba(200, 215, 200, 0.9) !important;
+            color: rgba(255, 255, 255, 0.92) !important;
             font-size: 0.9rem !important;
         }
         .guide-box ol {
-            color: rgba(200, 215, 200, 0.88);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.88rem;
             padding-left: 1.4rem;
             line-height: 1.7;
@@ -541,119 +592,309 @@
             margin-bottom: 4px;
         }
 
-        /* ===== CAROUSEL ===== */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.8));
-        }
-        .carousel-indicators [data-bs-target] {
-            background-color: var(--gold);
-        }
-        .carousel-inner img {
-            height: 420px;
-            object-fit: cover;
-            width: 100%;
-            background: #1a4025;
+        /* ============================================================ */
+        /* ===== ENHANCED MOBILE RESPONSIVE STYLES ===== */
+        /* ============================================================ */
+
+        /* Tablets & small laptops */
+        @media (max-width: 992px) {
+            .service-grid {
+                gap: 18px;
+            }
+            .service-card {
+                min-height: 170px;
+                padding: 24px 16px;
+                border-radius: 24px;
+            }
+            .service-card span {
+                font-size: 2.4rem;
+            }
+            .service-card strong {
+                font-size: 1.05rem;
+            }
+            .section-title h1 {
+                font-size: 2.4rem;
+            }
+            .service-panel p {
+                font-size: 0.98rem;
+            }
+            .carousel-inner img {
+                height: 340px;
+            }
+            .img-placeholder {
+                min-height: 100px;
+                font-size: 2.5rem;
+            }
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* Mobile landscape & tablets */
         @media (max-width: 768px) {
             .service-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 14px;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
             }
             .service-card {
-                min-height: 140px;
-                padding: 24px 16px;
+                min-height: 100px;
+                padding: 16px 18px;
+                border-radius: 20px;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 16px;
+                text-align: left;
+                align-items: center;
+                background-color: rgba(15, 42, 22, 0.6);
             }
             .service-card span {
                 font-size: 2.2rem;
+                margin-bottom: 0;
+                flex-shrink: 0;
             }
+            .service-card strong {
+                font-size: 0.95rem;
+                margin: 0;
+                text-align: left;
+            }
+            .service-card small {
+                font-size: 0.7rem;
+                text-align: left;
+            }
+            .service-card::before {
+                font-size: 3.5rem;
+                bottom: -5px;
+                right: -2px;
+            }
+            .service-card::after {
+                top: 4px;
+                left: 4px;
+                right: 4px;
+                bottom: 4px;
+                border-radius: 16px;
+            }
+            .service-card .card-text-wrap {
+                display: flex;
+                flex-direction: column;
+            }
+
             .section-title h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .section-title h1::after {
                 content: " 🍃";
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
-            #cursor-leaf {
-                font-size: 1.6rem;
+            .section-title p {
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.88);
             }
-            .trail-leaf {
-                font-size: 0.8rem !important;
+
+            .service-panel {
+                padding: 20px 16px;
+                border-radius: 20px;
+                min-height: 150px;
             }
+            .service-panel h3 {
+                font-size: 1.2rem;
+                gap: 8px;
+            }
+            .service-panel p {
+                font-size: 0.92rem;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.92);
+            }
+            .service-panel .panel-actions {
+                gap: 10px;
+            }
+            .service-panel .action-btn {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+            }
+
             .service-panel .row img {
                 height: 80px;
+                border-radius: 12px;
             }
             .carousel-inner img {
                 height: 280px !important;
             }
-            .tourism-highlight h5 {
-                font-size: 0.9rem;
+
+            .img-placeholder {
+                min-height: 80px;
+                font-size: 2.2rem;
+                border-radius: 12px;
             }
-            .tourism-highlight p {
-                font-size: 0.8rem !important;
+            .img-placeholder-sm {
+                min-height: 60px;
+                font-size: 1.6rem;
             }
+
             .guide-box {
-                padding: 16px 14px;
+                padding: 18px 16px;
             }
             .guide-box h4 {
-                font-size: 1rem;
+                font-size: 1.05rem;
             }
             .guide-box p,
             .guide-box ol {
-                font-size: 0.82rem !important;
+                font-size: 0.88rem !important;
             }
             .guide-box ol {
                 padding-left: 1.2rem;
             }
+
+            .tourism-highlight h5 {
+                font-size: 0.92rem;
+            }
+            .tourism-highlight p {
+                font-size: 0.82rem !important;
+            }
+
             .process-step .icon {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .process-step h6 {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
             .process-step small {
                 font-size: 0.6rem;
             }
+
+            .navbar-brand {
+                font-size: 1rem;
+                gap: 6px;
+            }
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 0.4rem 1rem !important;
+            }
+
+            .footer {
+                font-size: 0.75rem;
+                padding: 14px 0;
+            }
+            .socials a {
+                width: 32px;
+                height: 32px;
+                font-size: 0.75rem;
+            }
         }
 
+        /* Small phones */
         @media (max-width: 480px) {
             .section-title h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+            }
+            .section-title .eyebrow {
+                font-size: 0.6rem;
+                padding: 0.2rem 1rem;
+            }
+            .section-title p {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.85);
+            }
+
+            .service-grid {
+                gap: 10px;
+                max-width: 100%;
+                padding: 0 4px;
             }
             .service-card {
-                min-height: 110px;
-                padding: 18px 12px;
-                border-radius: 20px;
-            }
-            .service-card strong {
-                font-size: 1rem;
+                min-height: 80px;
+                padding: 12px 14px;
+                border-radius: 16px;
+                gap: 12px;
+                background-color: rgba(15, 42, 22, 0.7);
             }
             .service-card span {
                 font-size: 1.8rem;
             }
+            .service-card strong {
+                font-size: 0.82rem;
+            }
+            .service-card small {
+                font-size: 0.6rem;
+            }
+            .service-card::before {
+                font-size: 2.8rem;
+            }
+            .service-card::after {
+                top: 3px;
+                left: 3px;
+                right: 3px;
+                bottom: 3px;
+                border-radius: 12px;
+            }
+
             .service-panel {
-                padding: 20px 16px;
-                border-radius: 20px;
+                padding: 16px 12px;
+                border-radius: 16px;
+                min-height: 120px;
+            }
+            .service-panel .eyebrow {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.8rem;
             }
             .service-panel h3 {
-                font-size: 1.2rem;
+                font-size: 1rem;
+                margin-bottom: 8px;
             }
-            .service-panel .row img {
-                height: 60px;
+            .service-panel p {
+                font-size: 0.82rem;
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.92);
             }
             .service-panel .panel-actions {
+                gap: 8px;
+                margin-top: 12px;
                 flex-direction: column;
             }
             .service-panel .action-btn {
+                font-size: 0.72rem;
+                padding: 6px 14px;
                 text-align: center;
+                width: 100%;
             }
+            .service-panel .row img {
+                height: 60px;
+                border-radius: 10px;
+            }
+
             .carousel-inner img {
                 height: 200px !important;
             }
+
+            .img-placeholder {
+                min-height: 60px;
+                font-size: 1.8rem;
+                border-radius: 10px;
+            }
+            .img-placeholder-sm {
+                min-height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .guide-box {
+                padding: 14px 12px;
+                border-radius: 14px;
+            }
+            .guide-box h4 {
+                font-size: 0.9rem;
+            }
+            .guide-box p,
+            .guide-box ol {
+                font-size: 0.78rem !important;
+            }
+            .guide-box ol {
+                padding-left: 1rem;
+            }
+            .guide-box ol li {
+                margin-bottom: 2px;
+            }
+
             .tourism-highlight {
-                padding: 12px;
+                padding: 12px 10px;
                 border-radius: 12px;
             }
             .tourism-highlight h5 {
@@ -662,35 +903,76 @@
             .tourism-highlight p {
                 font-size: 0.72rem !important;
             }
-            .guide-box {
-                padding: 12px 10px;
-                border-radius: 14px;
-            }
-            .guide-box h4 {
-                font-size: 0.85rem;
-            }
-            .guide-box p,
-            .guide-box ol {
-                font-size: 0.75rem !important;
-            }
-            .guide-box ol {
-                padding-left: 1rem;
-            }
-            .guide-box ol li {
-                margin-bottom: 2px;
-            }
+
             .process-step {
                 padding: 10px 6px;
                 border-radius: 10px;
             }
             .process-step .icon {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             .process-step h6 {
-                font-size: 0.65rem;
+                font-size: 0.7rem;
             }
             .process-step small {
                 font-size: 0.5rem;
+            }
+
+            .navbar-brand {
+                font-size: 0.85rem;
+                gap: 4px;
+            }
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.8rem !important;
+            }
+
+            .footer {
+                font-size: 0.6rem;
+                padding: 12px 0;
+            }
+            .footer .container {
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+            }
+            .socials a {
+                width: 28px;
+                height: 28px;
+                font-size: 0.65rem;
+            }
+
+            .empty-panel {
+                padding: 24px 12px;
+                font-size: 0.9rem;
+            }
+            .empty-panel::before {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Extra small */
+        @media (max-width: 360px) {
+            .section-title h1 {
+                font-size: 1.2rem;
+            }
+            .service-card strong {
+                font-size: 0.7rem;
+            }
+            .service-card span {
+                font-size: 1.4rem;
+            }
+            .service-panel h3 {
+                font-size: 0.85rem;
+            }
+            .service-panel p {
+                font-size: 0.72rem;
+            }
+            .carousel-inner img {
+                height: 160px !important;
+            }
+            .navbar-brand {
+                font-size: 0.7rem;
             }
         }
 
@@ -709,28 +991,22 @@
 </head>
 <body>
 
-    <!-- ===== CURSOR LEAF ===== -->
-    <div id="cursor-leaf">🍃</div>
-
-    <!-- ===== TRAIL CONTAINER ===== -->
-    <div id="trail-container"></div>
-
     <!-- ===== FLOATING LEAF PARTICLES ===== -->
     <div id="leaf-particles"></div>
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg glass-nav sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">🌿 සුනිල්ස් තේ කර්මාන්තශාලාව</a>
-            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav">
+            <a class="navbar-brand fw-bold" href="#">🌿 සුනිල්ස් තේ කර්මාන්තශාලාව</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="filter: invert(0.8);"></span>
             </button>
             <div id="nav" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="sunils.html">සුනිල්ස් තේ කර්මාන්තශාලාව</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sirendra.html">සිලැන්රා තේ පුද්ගලික සමාගම </a></li>
-                    <li class="nav-item"><a class="nav-link" href="transport.html">සිලැන්රා තේ ප්‍රවාහන අංශය</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Leaf routes.html">දළු මාර්ග</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">සුනිල්ස් තේ කර්මාන්තශාලාව</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">සිලැන්රා තේ පුද්ගලික සමාගම</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">සිලැන්රා තේ ප්‍රවාහන අංශය</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">දළු මාර්ග</a></li>
                 </ul>
             </div>
         </div>
@@ -746,20 +1022,26 @@
 
         <!-- Service Grid -->
         <div class="service-grid">
-            <button class="service-card" data-service="office">
+            <button class="service-card" data-service="office" type="button">
                 <span>🏢</span>
-                <strong>කාර්යාලය</strong>
-                <small>සම්බන්ධ වන්න</small>
+                <span class="card-text-wrap">
+                    <strong>කාර්යාලය</strong>
+                    <small>සම්බන්ධ වන්න</small>
+                </span>
             </button>
-            <button class="service-card" data-service="leaf">
+            <button class="service-card" data-service="leaf" type="button">
                 <span>🌱</span>
-                <strong>දළු මාර්ග තේ ව්‍යාප්ති අංශය</strong>
-                <small>ගොවි සේවා</small>
+                <span class="card-text-wrap">
+                    <strong>දළු මාර්ග තේ ව්‍යාප්ති අංශය</strong>
+                    <small>ගොවි සේවා</small>
+                </span>
             </button>
-            <button class="service-card" data-service="tourism">
+            <button class="service-card" data-service="tourism" type="button">
                 <span>🏞️</span>
-                <strong>තේ සංචාරක කර්මාන්තය</strong>
-                <small>අත්දැකීමක්</small>
+                <span class="card-text-wrap">
+                    <strong>තේ සංචාරක කර්මාන්තය</strong>
+                    <small>අත්දැකීමක්</small>
+                </span>
             </button>
         </div>
 
@@ -774,11 +1056,11 @@
         <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
             <div>© 2026 Sunils Tea Factory Media Unit</div>
             <div class="socials">
-                <a href="#">f</a>
-                <a href="#">f</a>
-                <a href="tel:+94112222222">☎</a>
-                <a href="https://wa.me/94770000000">◉</a>
-                <a href="#">▶</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="tel:+94112222222" aria-label="Phone">☎</a>
+                <a href="https://wa.me/94770000000" aria-label="WhatsApp">◉</a>
+                <a href="#" aria-label="YouTube">▶</a>
             </div>
         </div>
     </footer>
@@ -787,7 +1069,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
 
-    <!-- ===== ALL IN ONE JS ===== -->
+    <!-- ===== MAIN JS ===== -->
     <script>
         (function() {
             "use strict";
@@ -808,66 +1090,6 @@
                 leafContainer.appendChild(el);
             }
 
-            // ---- CURSOR LEAF ----
-            const cursorLeaf = document.getElementById('cursor-leaf');
-            let cursorX = -100,
-                cursorY = -100;
-
-            document.addEventListener('mousemove', (e) => {
-                cursorX = e.clientX;
-                cursorY = e.clientY;
-                cursorLeaf.style.left = cursorX + 'px';
-                cursorLeaf.style.top = cursorY + 'px';
-            });
-
-            document.addEventListener('mouseleave', () => cursorLeaf.style.opacity = '0');
-            document.addEventListener('mouseenter', () => cursorLeaf.style.opacity = '1');
-
-            // ---- TRAIL LEAVES ----
-            const trailContainer = document.getElementById('trail-container');
-            const trailLength = 14;
-            let trailPositions = [];
-            let trailElements = [];
-
-            for (let i = 0; i < trailLength; i++) {
-                const el = document.createElement('div');
-                el.className = 'trail-leaf';
-                el.textContent = ['🍃', '🌿', '🍂', '🌱'][i % 4];
-                const scale = 1 - (i / trailLength) * 0.65;
-                el.style.fontSize = `${20 * scale}px`;
-                el.style.opacity = 0.7 - (i / trailLength) * 0.6;
-                el.style.transform = `rotate(${i * 18}deg)`;
-                trailContainer.appendChild(el);
-                trailElements.push(el);
-                trailPositions.push({ x: -100, y: -100 });
-            }
-
-            document.addEventListener('mousemove', (e) => {
-                trailPositions.unshift({ x: e.clientX, y: e.clientY });
-                trailPositions.pop();
-            });
-
-            let windAngle = 0;
-
-            function updateTrail() {
-                windAngle += 0.025;
-                const wind = Math.sin(windAngle) * 16;
-
-                trailElements.forEach((el, index) => {
-                    const pos = trailPositions[index] || trailPositions[trailPositions.length - 1];
-                    const delayOffset = index * 1.2;
-                    const windOffset = wind * (1 + index * 0.15);
-
-                    el.style.left = (pos.x + windOffset) + 'px';
-                    el.style.top = (pos.y + delayOffset) + 'px';
-                    el.style.transform =
-                        `rotate(${index * 22 + wind * 1.5}deg) scale(${1 - index * 0.035})`;
-                });
-
-                requestAnimationFrame(updateTrail);
-            }
-            updateTrail();
-
             // ---- FALLING LEAVES ----
             const fallingEmojis = ['🍃', '🌿', '🍂', '🌱'];
 
@@ -875,17 +1097,13 @@
                 const leaf = document.createElement('div');
                 leaf.className = 'falling-leaf';
                 leaf.textContent = fallingEmojis[Math.floor(Math.random() * fallingEmojis.length)];
-
                 const size = 1.4 + Math.random() * 2.2;
                 leaf.style.fontSize = size + 'rem';
                 leaf.style.left = (Math.random() * 100) + '%';
-
                 const duration = 10 + Math.random() * 16;
                 leaf.style.animationDuration = duration + 's';
                 leaf.style.animationDelay = (Math.random() * 2) + 's';
-
                 document.body.appendChild(leaf);
-
                 setTimeout(() => {
                     if (leaf.parentNode) leaf.remove();
                 }, (duration + 4) * 1000);
@@ -894,7 +1112,6 @@
             for (let i = 0; i < 15; i++) {
                 setTimeout(spawnFallingLeaf, i * 250);
             }
-
             setInterval(() => {
                 const count = 1 + Math.floor(Math.random() * 2);
                 for (let i = 0; i < count; i++) {
@@ -902,205 +1119,232 @@
                 }
             }, 1200);
 
-            // ---- SERVICE PANEL WITH LOCAL IMAGES ----
+            // ---- SERVICE PANEL DATA ----
             const panel = document.getElementById("servicePanel");
 
-            // Helper: generate carousel slides from image array
-            function buildCarousel(images, basePath) {
-                let slides = '';
-                images.forEach((img, idx) => {
-                    const active = idx === 0 ? 'active' : '';
-                    slides += `
-                        <div class="carousel-item ${active}">
-                            <img src="${basePath}${img}" class="d-block w-100" alt="Tea Tourism ${idx+1}" style="height:420px; object-fit:cover; background:#1a4025;">
-                        </div>
-                    `;
-                });
-                return slides;
+            // Helper: create image grid with your local images
+            function createImageGrid(count, cols, basePath, startIndex) {
+                let html = '<div class="row g-2">';
+                for (let i = 0; i < count; i++) {
+                    const num = startIndex + i;
+                    html += `
+                                <div class="col-6 col-md-${cols}">
+                                    <img src="${basePath}${num}.jpg"
+                                         class="img-fluid rounded-3"
+                                         alt="Tea image ${num}"
+                                         style="width:100%; height:100px; object-fit:cover; border-radius:12px; background:#1a4025;"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="img-placeholder img-placeholder-sm" style="display:none; height:100px;">
+                                        🍃
+                                    </div>
+                                </div>
+                            `;
+                }
+                html += '</div>';
+                return html;
             }
-
-            const tourismImages = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
-            const carouselSlides = buildCarousel(tourismImages, 'assets/IMG/TT/');
 
             const serviceData = {
                 office: `
-                    <span class="eyebrow">OFFICE</span>
-                    <h3>🏢 කාර්යාල සම්බන්ධතා</h3>
-                    <p>පහත බටන ඔබන්න — ඔබට අවශ්‍ය සම්බන්ධතාවයට සෘජුවම යන්න.</p>
-                    <div class="panel-actions">
-                        <a class="action-btn" href="tel:+94763597334">💬 WhatsApp / Mobile</a>
-                        <a class="action-btn" href="mailto:sunilstea@gmail.com">✉️ Email</a>
-                        <a class="action-btn" href="tel:+94763597334">🚨 Hotline</a>
-                        <a class="action-btn" href="tel:+94342269587">☎️ කාර්යාලීය අංකය</a>
-                    </div>`,
+                            <span class="eyebrow">OFFICE</span>
+                            <h3>🏢 කාර්යාල සම්බන්ධතා</h3>
+                            <p>පහත බටන ඔබන්න — ඔබට අවශ්‍ය සම්බන්ධතාවයට සෘජුවම යන්න.</p>
+                            <div class="panel-actions">
+                                <a class="action-btn" href="tel:+94763597334">💬 WhatsApp / Mobile</a>
+                                <a class="action-btn" href="mailto:sunilstea@gmail.com">✉️ Email</a>
+                                <a class="action-btn" href="tel:+94763597334">🚨 Hotline</a>
+                                <a class="action-btn" href="tel:+94342269587">☎️ කාර්යාලීය අංකය</a>
+                            </div>`,
 
                 leaf: `
-                    <span class="eyebrow">TEA EXTENSION</span>
-                    <h3>🌱 තේ ව්‍යාප්ති අංශය</h3>
-                    <div class="panel-actions">
-                        <a class="action-btn" href="Leaf routes.html">🗺️ දළු මාර්ග බලන්න</a>
-                        <a class="action-btn" href="tel:+94760357755">📅 ඉඩම් පරීක්ෂාවට දින වෙන්කරවා ගන්න</a>
-                        <a class="action-btn" href="tel:+94760357755">👨‍🌾 තේ ව්‍යාප්ති නිලධාරී</a>
-                        <a class="action-btn" href="tel:+94763597334">🧪 නොමිලේ පස් පරීක්ෂණ වැඩසටහන</a>
-                        <a class="action-btn" href="tel:+94773333333">💡 තාක්ෂණික උපදෙස්</a>
-                        <a class="action-btn" href="prices-2025.html">📊 2025 දළු මිල ගණන්</a>
-                        <a class="action-btn" href="prices-2026.html">📊 2026 දළු මිල ගණන්</a>
-                        <a class="action-btn" href="tel:+94773535500">🌾 හේලිස් පොහොර උපදේශන නිලධාරී</a>
-                    </div>
-                    <div class="mt-4">
-                        <h5 class="fw-bold" style="color:var(--gold);">📸 සේවා ඡායාරූප</h5>
-                        <div class="row g-2">
-                            <div class="col-6 col-md-2">
-                                <img class="img-fluid rounded-3" src="assets/IMG/TEF/1.jpeg" alt="Tea service">
+                            <span class="eyebrow">TEA EXTENSION</span>
+                            <h3>🌱 තේ ව්‍යාප්ති අංශය</h3>
+                            <div class="panel-actions">
+                                <a class="action-btn" href="#">🗺️ දළු මාර්ග බලන්න</a>
+                                <a class="action-btn" href="tel:+94760357755">📅 ඉඩම් පරීක්ෂාවට දින වෙන්කරවා ගන්න</a>
+                                <a class="action-btn" href="tel:+94760357755">👨‍🌾 තේ ව්‍යාප්ති නිලධාරී</a>
+                                <a class="action-btn" href="tel:+94763597334">🧪 නොමිලේ පස් පරීක්ෂණ වැඩසටහන</a>
+                                <a class="action-btn" href="tel:+94773333333">💡 තාක්ෂණික උපදෙස්</a>
+                                <a class="action-btn" href="#">📊 2025 දළු මිල ගණන්</a>
+                                <a class="action-btn" href="#">📊 2026 දළු මිල ගණන්</a>
+                                <a class="action-btn" href="tel:+94773535500">🌾 හේලිස් පොහොර උපදේශන නිලධාරී</a>
                             </div>
-                            <div class="col-6 col-md-2">
-                                <img class="img-fluid rounded-3" src="assets/IMG/TEF/2.jpeg" alt="Tea service">
-                            </div>
-                            <div class="col-6 col-md-2">
-                                <img class="img-fluid rounded-3" src="assets/IMG/TEF/3.jpeg" alt="Tea service">
-                            </div>
-                            <div class="col-6 col-md-2">
-                                <img class="img-fluid rounded-3" src="assets/IMG/TEF/4.jpeg" alt="Tea service">
-                            </div>
-                            <div class="col-6 col-md-2">
-                                <img class="img-fluid rounded-3" src="assets/IMG/TEF/5.jpeg" alt="Tea service">
-                            </div>
-                        </div>
-                    </div>`,
+                            <div class="mt-4">
+                                <h5 class="fw-bold" style="color:var(--gold); font-size:0.95rem;">📸 සේවා ඡායාරූප</h5>
+                                ${createImageGrid(5, 2, 'assets/IMG/TEF/', 1)}
+                            </div>`,
 
                 tourism: `
-                    <span class="eyebrow">TEA TOURISM</span>
-                    <h3>🏞️ සුනිල්ස් තේ කර්මාන්ත ශාලාව – තේ සංචාරක අත්දැකීම</h3>
-                    <p>
-                        <strong>සුනිල්ස් තේ කර්මාන්ත ශාලාව</strong> වෙත පැමිණෙන සංචාරකයින්ට
-                        ශ්‍රී ලංකාවේ සුන්දර තේ වතු පරිසරය, තේ දළු නෙළීමේ සිට
-                        අවසන් කළු තේ නිෂ්පාදනය දක්වා සම්පූර්ණ ක්‍රියාවලිය
-                        නැරඹීමට සහ අත්විඳීමට අවස්ථාව ලබා දේ.
-                    </p>
-                    <p>
-                        අපගේ අත්දැකීම් සහිත <strong>Tea Factory Guides</strong> විසින්
-                        මෙම ක්‍රියාවලිය පිළිබඳ සවිස්තරාත්මක පැහැදිලි කිරීමක්
-                        <strong>ඉංග්‍රීසි භාෂාවෙන්</strong> ලබා දෙනු ඇත.
-                    </p>
+                            <span class="eyebrow">TEA TOURISM</span>
+                            <h3>🏞️ සුනිල්ස් තේ කර්මාන්ත ශාලාව – තේ සංචාරක අත්දැකීම</h3>
+                            <p>
+                                <strong>සුනිල්ස් තේ කර්මාන්ත ශාලාව</strong> වෙත පැමිණෙන සංචාරකයින්ට
+                                ශ්‍රී ලංකාවේ සුන්දර තේ වතු පරිසරය, තේ දළු නෙළීමේ සිට
+                                අවසන් කළු තේ නිෂ්පාදනය දක්වා සම්පූර්ණ ක්‍රියාවලිය
+                                නැරඹීමට සහ අත්විඳීමට අවස්ථාව ලබා දේ.
+                            </p>
+                            <p>
+                                අපගේ අත්දැකීම් සහිත <strong>Tea Factory Guides</strong> විසින්
+                                මෙම ක්‍රියාවලිය පිළිබඳ සවිස්තරාත්මක පැහැදිලි කිරීමක්
+                                <strong>ඉංග්‍රීසි භාෂාවෙන්</strong> ලබා දෙනු ඇත.
+                            </p>
 
-                    <!-- TOURISM HIGHLIGHTS -->
-                    <div class="row g-3 mt-3">
-                        <div class="col-12 col-md-6">
-                            <div class="tourism-highlight">
-                                <h5>🍃 01. තේ වතු අත්දැකීම</h5>
-                                <p>සුන්දර තේ වතු අතර සංචාරය කරමින් ශ්‍රී ලංකාවේ තේ වගාව පිළිබඳව දැන ගැනීමට අවස්ථාව ලැබේ.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="tourism-highlight">
-                                <h5>🧺 02. තේ දළු නෙළීම</h5>
-                                <p>තේ දළු නෙළන ආකාරය නැරඹීමට සහ තේ දළු නෙළීමේ අත්දැකීම ලබා ගැනීමට අවස්ථාව ලබා දේ.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="tourism-highlight">
-                                <h5>🏭 03. තේ නිෂ්පාදන ක්‍රියාවලිය</h5>
-                                <p>කර්මාන්ත ශාලාව තුළ තේ දළු කළු තේ බවට පත්වන සම්පූර්ණ නිෂ්පාදන ක්‍රියාවලිය නැරඹීමට හැකියාව ඇත.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="tourism-highlight">
-                                <h5>☕ 04. Ceylon Black Tea Experience</h5>
-                                <p>නැවුම්ව නිෂ්පාදනය කරන ලද ශ්‍රී ලාංකීය කළු තේ පානය කරමින් සැබෑ Ceylon Tea අත්දැකීම විඳීමට අවස්ථාව ලැබේ.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PRODUCTION PROCESS -->
-                    <div class="mt-4">
-                        <h4 class="fw-bold" style="color:var(--gold); font-size:1.1rem;">🏭 තේ නිෂ්පාදන ක්‍රියාවලිය</h4>
-                        <div class="row g-2 g-md-3 mt-2">
-                            <div class="col-6 col-md-3">
-                                <div class="process-step">
-                                    <span class="icon">🍃</span>
-                                    <h6>මැලවීම</h6>
-                                    <small>Withering</small>
+                            <!-- TOURISM HIGHLIGHTS -->
+                            <div class="row g-3 mt-3">
+                                <div class="col-12 col-md-6">
+                                    <div class="tourism-highlight">
+                                        <h5>🍃 01. තේ වතු අත්දැකීම</h5>
+                                        <p>සුන්දර තේ වතු අතර සංචාරය කරමින් ශ්‍රී ලංකාවේ තේ වගාව පිළිබඳව දැන ගැනීමට අවස්ථාව ලැබේ.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="tourism-highlight">
+                                        <h5>🧺 02. තේ දළු නෙළීම</h5>
+                                        <p>තේ දළු නෙළන ආකාරය නැරඹීමට සහ තේ දළු නෙළීමේ අත්දැකීම ලබා ගැනීමට අවස්ථාව ලබා දේ.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="tourism-highlight">
+                                        <h5>🏭 03. තේ නිෂ්පාදන ක්‍රියාවලිය</h5>
+                                        <p>කර්මාන්ත ශාලාව තුළ තේ දළු කළු තේ බවට පත්වන සම්පූර්ණ නිෂ්පාදන ක්‍රියාවලිය නැරඹීමට හැකියාව ඇත.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="tourism-highlight">
+                                        <h5>☕ 04. Ceylon Black Tea Experience</h5>
+                                        <p>නැවුම්ව නිෂ්පාදනය කරන ලද ශ්‍රී ලාංකීය කළු තේ පානය කරමින් සැබෑ Ceylon Tea අත්දැකීම විඳීමට අවස්ථාව ලැබේ.</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
-                                <div class="process-step">
-                                    <span class="icon">⚙️</span>
-                                    <h6>ඇඹරීම</h6>
-                                    <small>Rolling</small>
+
+                            <!-- PRODUCTION PROCESS -->
+                            <div class="mt-4">
+                                <h4 class="fw-bold" style="color:var(--gold); font-size:1.1rem;">🏭 තේ නිෂ්පාදන ක්‍රියාවලිය</h4>
+                                <div class="row g-2 g-md-3 mt-2">
+                                    <div class="col-6 col-md-3">
+                                        <div class="process-step">
+                                            <span class="icon">🍃</span>
+                                            <h6>මැලවීම</h6>
+                                            <small>Withering</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="process-step">
+                                            <span class="icon">⚙️</span>
+                                            <h6>ඇඹරීම</h6>
+                                            <small>Rolling</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="process-step">
+                                            <span class="icon">🔥</span>
+                                            <h6>වියලීම</h6>
+                                            <small>Drying</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="process-step">
+                                            <span class="icon">📊</span>
+                                            <h6>ශ්‍රේණිගත කිරීම</h6>
+                                            <small>Grading</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
-                                <div class="process-step">
-                                    <span class="icon">🔥</span>
-                                    <h6>වියලීම</h6>
-                                    <small>Drying</small>
+
+                            <!-- ENGLISH GUIDE -->
+                            <div class="guide-box mt-4">
+                                <h4>🇬🇧 Tea Factory Guided Tour</h4>
+                                <p>At <strong>Sunils Tea Factory</strong>, visitors are invited to experience the journey of Ceylon Tea from the tea estate to the finished product.</p>
+                                <p>Our experienced English-speaking tea factory guides will explain the tea manufacturing process clearly and professionally throughout the tour.</p>
+                                <ol>
+                                    <li><strong>Tea Estate Visit</strong> – Explore the beautiful tea plantations and learn about tea cultivation.</li>
+                                    <li><strong>Tea Plucking</strong> – Observe how fresh tea leaves are carefully plucked and learn about the traditional tea-plucking method.</li>
+                                    <li><strong>Withering</strong> – See how freshly harvested tea leaves are spread and withered to reduce moisture.</li>
+                                    <li><strong>Rolling</strong> – Learn how the withered tea leaves are rolled to prepare them for the next stage.</li>
+                                    <li><strong>Drying</strong> – Observe how the processed tea is dried to develop its characteristic flavour and aroma.</li>
+                                    <li><strong>Grading</strong> – Discover how the finished black tea is sorted and graded according to its characteristics.</li>
+                                    <li><strong>Ceylon Black Tea Tasting</strong> – Complete your visit by enjoying a cup of authentic Sri Lankan black tea.</li>
+                                </ol>
+                                <p class="mb-0">☕ <strong>Experience the story of Ceylon Tea with us.</strong></p>
+                            </div>
+
+                            <!-- PHOTO SLIDESHOW — uses your assets/IMG/TT/ images -->
+                            <div class="mt-4">
+                                <h4 class="fw-bold mb-3" style="color:var(--gold); font-size:1.05rem;">📸 තේ සංචාරක ඡායාරූප</h4>
+                                <div id="teaTourismCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                                    <div class="carousel-inner rounded-4 overflow-hidden">
+                                        <div class="carousel-item active">
+                                            <img src="assets/IMG/TT/1.jpg" class="d-block w-100" alt="Tea Tourism 1" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌿</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/2.jpg" class="d-block w-100" alt="Tea Tourism 2" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🍃</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/3.jpg" class="d-block w-100" alt="Tea Tourism 3" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌱</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/4.jpg" class="d-block w-100" alt="Tea Tourism 4" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🍂</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/5.jpg" class="d-block w-100" alt="Tea Tourism 5" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌿</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/6.jpg" class="d-block w-100" alt="Tea Tourism 6" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌿</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/7.jpg" class="d-block w-100" alt="Tea Tourism 7" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🍃</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/8.jpg" class="d-block w-100" alt="Tea Tourism 8" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌱</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/9.jpg" class="d-block w-100" alt="Tea Tourism 9" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🍂</div>'">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/IMG/TT/10.jpg" class="d-block w-100" alt="Tea Tourism 10" style="height:420px; object-fit:cover; background:#1a4025;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'img-placeholder\\' style=\\'height:420px; min-height:unset; font-size:5rem;\\'>🌿</div>'">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="text-center mt-2 d-flex flex-wrap justify-content-center gap-1">
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="0" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">1</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="1" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">2</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="2" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">3</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="3" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">4</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="4" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">5</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="5" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">6</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="6" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">7</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="7" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">8</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="8" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">9</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="9" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">10</button>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
-                                <div class="process-step">
-                                    <span class="icon">📊</span>
-                                    <h6>ශ්‍රේණිගත කිරීම</h6>
-                                    <small>Grading</small>
-                                </div>
+
+                            <!-- CONTACT -->
+                            <div class="panel-actions mt-4">
+                                <a class="action-btn" href="tel:+94763335365">📞 සංචාරක සේවාව අමතන්න / Contact Tea Tourism</a>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- ENGLISH GUIDE -->
-                    <div class="guide-box mt-4">
-                        <h4>🇬🇧 Tea Factory Guided Tour</h4>
-                        <p>At <strong>Sunils Tea Factory</strong>, visitors are invited to experience the journey of Ceylon Tea from the tea estate to the finished product.</p>
-                        <p>Our experienced English-speaking tea factory guides will explain the tea manufacturing process clearly and professionally throughout the tour.</p>
-                        <ol>
-                            <li><strong>Tea Estate Visit</strong> – Explore the beautiful tea plantations and learn about tea cultivation.</li>
-                            <li><strong>Tea Plucking</strong> – Observe how fresh tea leaves are carefully plucked and learn about the traditional tea-plucking method.</li>
-                            <li><strong>Withering</strong> – See how freshly harvested tea leaves are spread and withered to reduce moisture.</li>
-                            <li><strong>Rolling</strong> – Learn how the withered tea leaves are rolled to prepare them for the next stage.</li>
-                            <li><strong>Drying</strong> – Observe how the processed tea is dried to develop its characteristic flavour and aroma.</li>
-                            <li><strong>Grading</strong> – Discover how the finished black tea is sorted and graded according to its characteristics.</li>
-                            <li><strong>Ceylon Black Tea Tasting</strong> – Complete your visit by enjoying a cup of authentic Sri Lankan black tea.</li>
-                        </ol>
-                        <p class="mb-0">☕ <strong>Experience the story of Ceylon Tea with us.</strong></p>
-                    </div>
-
-                    <!-- PHOTO SLIDESHOW -->
-                    <div class="mt-4">
-                        <h4 class="fw-bold mb-3" style="color:var(--gold); font-size:1.05rem;">📸 තේ සංචාරක ඡායාරූප</h4>
-                        <div id="teaTourismCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                            <div class="carousel-inner rounded-4 overflow-hidden">
-                                ${carouselSlides}
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div class="text-center mt-2 d-flex flex-wrap justify-content-center gap-1">
-                            ${tourismImages.map((_, idx) => `
-                                <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="${idx}" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">${idx+1}</button>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <!-- CONTACT -->
-                    <div class="panel-actions mt-4">
-                        <a class="action-btn" href="tel:+94763335365">📞 සංචාරක සේවාව අමතන්න / Contact Tea Tourism</a>
-                    </div>
-                    <div class="mt-3 text-center">
-                        <small style="color:rgba(168,200,168,0.7); font-size:0.75rem;">🌿 <strong>Sunils Tea Factory</strong> – Experience the journey of Ceylon Tea.</small>
-                    </div>`
+                            <div class="mt-3 text-center">
+                                <small style="color:rgba(200,230,200,0.7); font-size:0.75rem;">🌿 <strong>Sunils Tea Factory</strong> – Experience the journey of Ceylon Tea.</small>
+                            </div>`
             };
 
+            // ---- CARD CLICK HANDLER ----
             document.querySelectorAll(".service-card").forEach(btn => {
                 btn.addEventListener("click", function() {
                     document.querySelectorAll(".service-card").forEach(b => b.classList.remove("selected"));
                     this.classList.add("selected");
                     const service = this.dataset.service;
-                    panel.innerHTML = serviceData[service] || '<div class="empty-panel">👆 සේවාව තෝරන්න</div>';
+                    panel.innerHTML = serviceData[service] ||
+                        '<div class="empty-panel">👆 සේවාව තෝරන්න</div>';
 
                     // Re-initialize carousel after content update
                     if (service === 'tourism') {
@@ -1114,7 +1358,7 @@
                                 wrap: true
                             });
                         }
-                        // Fix carousel image heights on mobile
+                        // Fix carousel image heights on mobile after render
                         setTimeout(() => {
                             const imgs = carouselEl.querySelectorAll('img');
                             const width = window.innerWidth;
@@ -1125,6 +1369,12 @@
                             imgs.forEach(img => {
                                 img.style.height = height + 'px';
                             });
+                            // Also fix fallback placeholders
+                            const placeholders = carouselEl.querySelectorAll('.img-placeholder');
+                            placeholders.forEach(el => {
+                                el.style.height = height + 'px';
+                                el.style.minHeight = 'unset';
+                            });
                         }, 150);
                     }
 
@@ -1132,7 +1382,7 @@
                 });
             });
 
-            // ---- BOOTSTRAP CAROUSEL AUTO-INIT (for any existing carousels) ----
+            // ---- BOOTSTRAP CAROUSEL AUTO-INIT ----
             document.querySelectorAll('.carousel').forEach(el => {
                 if (!bootstrap.Carousel.getInstance(el)) {
                     new bootstrap.Carousel(el, {
@@ -1148,6 +1398,7 @@
                 const carouselEl = document.getElementById('teaTourismCarousel');
                 if (!carouselEl) return;
                 const imgs = carouselEl.querySelectorAll('img');
+                const placeholders = carouselEl.querySelectorAll('.img-placeholder');
                 const width = window.innerWidth;
                 let height = 420;
                 if (width < 480) height = 200;
@@ -1156,11 +1407,15 @@
                 imgs.forEach(img => {
                     img.style.height = height + 'px';
                 });
+                placeholders.forEach(el => {
+                    el.style.height = height + 'px';
+                    el.style.minHeight = 'unset';
+                });
             }
             window.addEventListener('resize', fixCarouselHeights);
             setTimeout(fixCarouselHeights, 500);
 
-            console.log('🍃 Sunils Tea Factory – Full version with all tourism content and local images loaded.');
+            console.log('🍃 Sunils Tea Factory – using your local images from assets/IMG/TT/ and assets/IMG/TEF/');
         })();
     </script>
 
