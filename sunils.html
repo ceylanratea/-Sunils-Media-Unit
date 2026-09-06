@@ -142,12 +142,13 @@
         .navbar-brand {
             font-weight: 800;
             color: var(--gold) !important;
-            font-size: 1.3rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: transform 0.2s;
             text-shadow: 0 0 20px rgba(212, 168, 67, 0.1);
+            line-height: 1.2;
         }
         .navbar-brand:hover {
             transform: translateX(-4px);
@@ -156,18 +157,19 @@
         .nav-link {
             color: rgba(232, 240, 224, 0.7) !important;
             font-weight: 600;
-            padding: 0.5rem 1.2rem !important;
+            padding: 0.5rem 1rem !important;
             border-radius: 40px;
             transition: all 0.25s ease;
             position: relative;
+            font-size: 0.85rem;
         }
         .nav-link::after {
             content: "🌿";
             position: absolute;
-            right: -8px;
+            right: -6px;
             top: 50%;
             transform: translateY(-50%) scale(0);
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             opacity: 0;
             transition: all 0.3s ease;
         }
@@ -190,27 +192,27 @@
         /* ===== SECTION TITLE ===== */
         .section-title {
             text-align: center;
-            padding: 20px 0 10px;
+            padding: 16px 0 8px;
             position: relative;
             z-index: 1;
         }
         .section-title .eyebrow {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 0.2em;
             font-weight: 800;
             color: var(--gold);
             text-transform: uppercase;
             background: rgba(212, 168, 67, 0.08);
-            padding: 0.3rem 1.4rem;
+            padding: 0.25rem 1.2rem;
             border-radius: 40px;
             border: 1px solid rgba(212, 168, 67, 0.1);
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .section-title h1 {
             font-weight: 800;
             color: #ffffff;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             line-height: 1.15;
             text-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
         }
@@ -229,8 +231,8 @@
             }
         }
         .section-title p {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.92);
+            font-size: 0.95rem;
+            color: rgba(220, 235, 220, 0.85);
             max-width: 500px;
             margin: 0 auto;
             font-weight: 400;
@@ -240,8 +242,8 @@
         .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 30px;
+            gap: 18px;
+            margin-top: 24px;
             position: relative;
             z-index: 1;
         }
@@ -250,19 +252,19 @@
             background: var(--card-glass);
             backdrop-filter: blur(12px);
             border: 1px solid var(--border-glass);
-            border-radius: 28px;
-            padding: 32px 20px 30px;
+            border-radius: 24px;
+            padding: 24px 16px 22px;
             text-align: center;
             transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 2px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             position: relative;
             overflow: hidden;
-            min-height: 200px;
+            min-height: 170px;
             color: #e8f0e0;
             background-color: rgba(15, 42, 22, 0.5);
             border: none;
@@ -276,7 +278,7 @@
             position: absolute;
             bottom: -10px;
             right: -5px;
-            font-size: 5rem;
+            font-size: 4.5rem;
             opacity: 0.04;
             transform: rotate(25deg);
             pointer-events: none;
@@ -294,7 +296,7 @@
             left: 6px;
             right: 6px;
             bottom: 6px;
-            border-radius: 22px;
+            border-radius: 20px;
             border: 1.5px dashed rgba(255, 215, 0, 0.06);
             pointer-events: none;
             transition: border-color 0.4s ease;
@@ -304,7 +306,7 @@
         }
 
         .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-6px) scale(1.02);
             border-color: rgba(212, 168, 67, 0.2);
             box-shadow: 0 0 50px rgba(117, 184, 67, 0.06), 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
             background: rgba(30, 60, 35, 0.6);
@@ -317,21 +319,23 @@
         }
 
         .service-card span {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             filter: drop-shadow(0 0 20px rgba(117, 184, 67, 0.1));
+            line-height: 1;
         }
         .service-card strong {
             display: block;
-            font-size: 1.15rem;
-            margin: 4px 0 6px;
+            font-size: 1rem;
+            margin: 2px 0 4px;
             font-weight: 700;
             color: #ffffff;
+            line-height: 1.3;
         }
         .service-card small {
-            font-size: 0.85rem;
-            color: rgba(200, 230, 200, 0.75);
+            font-size: 0.75rem;
+            color: rgba(180, 210, 180, 0.8);
             font-weight: 500;
             letter-spacing: 0.3px;
         }
@@ -341,9 +345,9 @@
             background: var(--card-glass);
             backdrop-filter: blur(14px);
             border: 1px solid var(--border-glass);
-            border-radius: 28px;
-            padding: 30px 28px;
-            min-height: 180px;
+            border-radius: 24px;
+            padding: 24px 20px;
+            min-height: 160px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.5s ease;
             position: relative;
@@ -355,37 +359,37 @@
             position: absolute;
             top: -20px;
             right: -10px;
-            font-size: 8rem;
+            font-size: 6rem;
             opacity: 0.03;
             pointer-events: none;
             transform: rotate(-10deg);
         }
         .service-panel .eyebrow {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 0.18em;
             font-weight: 800;
             color: var(--gold);
             text-transform: uppercase;
             background: rgba(212, 168, 67, 0.08);
-            padding: 0.2rem 1.2rem;
+            padding: 0.15rem 1rem;
             border-radius: 40px;
             border: 1px solid rgba(212, 168, 67, 0.08);
             display: inline-block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .service-panel h3 {
             font-weight: 800;
             color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
         .service-panel p {
-            color: rgba(255, 255, 255, 0.93);
-            font-size: 1.05rem;
+            color: rgba(220, 235, 220, 0.92);
+            font-size: 0.95rem;
             line-height: 1.7;
             max-width: 600px;
             font-weight: 400;
@@ -393,8 +397,8 @@
         .service-panel .panel-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 18px;
+            gap: 10px;
+            margin-top: 14px;
         }
         .service-panel .action-btn {
             display: inline-block;
@@ -402,14 +406,14 @@
             border: 1px solid rgba(117, 184, 67, 0.15);
             color: var(--tea-pale);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 40px;
             font-weight: 600;
             transition: all 0.25s ease;
             backdrop-filter: blur(4px);
             cursor: pointer;
+            font-size: 0.85rem;
             font-family: inherit;
-            font-size: 0.9rem;
             text-align: center;
         }
         .service-panel .action-btn:hover {
@@ -421,9 +425,9 @@
         }
 
         .service-panel .row img {
-            border-radius: 16px;
+            border-radius: 14px;
             transition: transform 0.3s ease;
-            height: 120px;
+            height: 100px;
             width: 100%;
             object-fit: cover;
         }
@@ -433,16 +437,16 @@
 
         .empty-panel {
             text-align: center;
-            color: rgba(200, 230, 200, 0.5);
-            padding: 40px 20px;
-            font-size: 1.1rem;
+            color: rgba(180, 210, 180, 0.5);
+            padding: 30px 16px;
+            font-size: 1rem;
             letter-spacing: 0.3px;
         }
         .empty-panel::before {
             content: "🍃 ";
-            font-size: 2rem;
+            font-size: 1.8rem;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             opacity: 0.3;
         }
 
@@ -450,23 +454,24 @@
         .footer {
             background: rgba(5, 13, 5, 0.6);
             backdrop-filter: blur(8px);
-            color: rgba(200, 230, 200, 0.6);
-            padding: 20px 0;
+            color: rgba(180, 210, 180, 0.6);
+            padding: 16px 0;
             border-top: 1px solid var(--border-glass);
             position: relative;
             z-index: 1;
             margin-top: 20px;
+            font-size: 0.8rem;
         }
         .socials {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
         .socials a {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.03);
-            color: rgba(200, 230, 200, 0.5);
+            color: rgba(180, 210, 180, 0.5);
             display: grid;
             place-items: center;
             text-decoration: none;
@@ -474,6 +479,7 @@
             border: 1px solid var(--border-glass);
             cursor: pointer;
             font-weight: 700;
+            font-size: 0.8rem;
         }
         .socials a:hover {
             background: var(--gold);
@@ -491,34 +497,34 @@
         .carousel-indicators [data-bs-target] {
             background-color: var(--gold);
         }
-        .carousel-inner img {
-            height: 420px;
-            object-fit: cover;
-            width: 100%;
+        .carousel-inner .img-placeholder {
+            height: 320px;
+            min-height: unset;
+            font-size: 4rem;
         }
 
-        /* ===== IMAGE PLACEHOLDER STYLES (kept for fallback) ===== */
+        /* ===== IMAGE PLACEHOLDER STYLES ===== */
         .img-placeholder {
             background: linear-gradient(135deg, #1a4025, #2d5a3a);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: rgba(255, 255, 255, 0.15);
-            min-height: 120px;
-            border-radius: 16px;
+            min-height: 100px;
+            border-radius: 14px;
             border: 1px solid var(--border-glass);
         }
         .img-placeholder-sm {
-            min-height: 80px;
-            font-size: 2rem;
+            min-height: 70px;
+            font-size: 1.8rem;
         }
 
         /* ===== TOURISM HIGHLIGHT CARDS ===== */
         .tourism-highlight {
             background: rgba(255, 255, 255, 0.04);
             border-radius: 16px;
-            padding: 18px 16px;
+            padding: 16px;
             height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.04);
             transition: background 0.3s ease;
@@ -532,15 +538,15 @@
             font-size: 1rem;
         }
         .tourism-highlight p {
-            color: rgba(255, 255, 255, 0.9) !important;
-            font-size: 0.92rem !important;
+            color: rgba(220, 235, 220, 0.88) !important;
+            font-size: 0.88rem !important;
             margin-bottom: 0;
         }
 
         /* ===== PROCESS STEP ===== */
         .process-step {
             text-align: center;
-            padding: 16px 10px;
+            padding: 14px 8px;
             border-radius: 14px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.04);
@@ -550,18 +556,18 @@
             background: rgba(255, 255, 255, 0.07);
         }
         .process-step .icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             display: block;
             margin-bottom: 4px;
         }
         .process-step h6 {
             font-weight: 700;
-            color: #ffffff;
-            font-size: 0.9rem;
+            color: #e8f0e0;
+            font-size: 0.85rem;
             margin-bottom: 0;
         }
         .process-step small {
-            color: rgba(200, 230, 200, 0.7);
+            color: rgba(180, 210, 180, 0.7);
             font-size: 0.7rem;
         }
 
@@ -569,21 +575,21 @@
         .guide-box {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 18px;
-            padding: 22px 20px;
+            padding: 20px 18px;
             border-left: 4px solid var(--gold);
         }
         .guide-box h4 {
             color: var(--gold);
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
         }
         .guide-box p {
-            color: rgba(255, 255, 255, 0.92) !important;
-            font-size: 0.95rem !important;
+            color: rgba(220, 235, 220, 0.9) !important;
+            font-size: 0.9rem !important;
         }
         .guide-box ol {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.92rem;
+            color: rgba(220, 235, 220, 0.88);
+            font-size: 0.88rem;
             padding-left: 1.4rem;
             line-height: 1.7;
         }
@@ -591,34 +597,28 @@
             margin-bottom: 4px;
         }
 
-        /* ============================================================ */
-        /* ===== ENHANCED MOBILE RESPONSIVE STYLES ===== */
-        /* ============================================================ */
+        /* ===== RESPONSIVE ===== */
 
         /* Tablets & small laptops */
         @media (max-width: 992px) {
             .service-grid {
-                gap: 18px;
+                gap: 14px;
             }
             .service-card {
-                min-height: 170px;
-                padding: 24px 16px;
-                border-radius: 24px;
+                min-height: 150px;
+                padding: 20px 14px;
             }
             .service-card span {
-                font-size: 2.4rem;
+                font-size: 2rem;
             }
             .service-card strong {
-                font-size: 1.05rem;
+                font-size: 0.9rem;
             }
             .section-title h1 {
-                font-size: 2.4rem;
+                font-size: 2rem;
             }
-            .service-panel p {
-                font-size: 0.98rem;
-            }
-            .carousel-inner img {
-                height: 340px;
+            .carousel-inner .img-placeholder {
+                height: 280px;
             }
         }
 
@@ -627,23 +627,22 @@
             .service-grid {
                 grid-template-columns: 1fr;
                 gap: 14px;
-                max-width: 420px;
+                max-width: 400px;
                 margin-left: auto;
                 margin-right: auto;
             }
             .service-card {
-                min-height: 100px;
-                padding: 16px 18px;
+                min-height: 120px;
+                padding: 18px 14px;
                 border-radius: 20px;
                 flex-direction: row;
-                justify-content: flex-start;
-                gap: 16px;
+                justify-content: center;
+                gap: 14px;
                 text-align: left;
                 align-items: center;
-                background-color: rgba(15, 42, 22, 0.6);
             }
             .service-card span {
-                font-size: 2.2rem;
+                font-size: 2rem;
                 margin-bottom: 0;
                 flex-shrink: 0;
             }
@@ -658,8 +657,6 @@
             }
             .service-card::before {
                 font-size: 3.5rem;
-                bottom: -5px;
-                right: -2px;
             }
             .service-card::after {
                 top: 4px;
@@ -674,126 +671,126 @@
             }
 
             .section-title h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             .section-title h1::after {
                 content: " 🍃";
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .section-title p {
-                font-size: 0.9rem;
-                color: rgba(255, 255, 255, 0.88);
+                font-size: 0.85rem;
             }
 
             .service-panel {
-                padding: 20px 16px;
+                padding: 18px 14px;
                 border-radius: 20px;
-                min-height: 150px;
+                min-height: 140px;
             }
             .service-panel h3 {
-                font-size: 1.2rem;
-                gap: 8px;
+                font-size: 1.1rem;
+                gap: 6px;
             }
             .service-panel p {
-                font-size: 0.92rem;
+                font-size: 0.88rem;
                 line-height: 1.6;
-                color: rgba(255, 255, 255, 0.92);
             }
             .service-panel .panel-actions {
-                gap: 10px;
+                gap: 8px;
             }
             .service-panel .action-btn {
-                font-size: 0.8rem;
-                padding: 8px 16px;
+                font-size: 0.78rem;
+                padding: 6px 14px;
             }
 
             .service-panel .row img {
-                height: 80px;
-                border-radius: 12px;
+                height: 70px;
             }
-            .carousel-inner img {
-                height: 280px !important;
+            .carousel-inner .img-placeholder {
+                height: 220px;
+                font-size: 3rem;
+            }
+
+            .img-placeholder {
+                min-height: 70px;
+                font-size: 2rem;
+            }
+            .img-placeholder-sm {
+                min-height: 55px;
+                font-size: 1.4rem;
             }
 
             .guide-box {
-                padding: 18px 16px;
+                padding: 16px 14px;
             }
             .guide-box h4 {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
             .guide-box p,
             .guide-box ol {
-                font-size: 0.88rem !important;
+                font-size: 0.82rem !important;
             }
             .guide-box ol {
                 padding-left: 1.2rem;
             }
 
             .tourism-highlight h5 {
-                font-size: 0.92rem;
+                font-size: 0.9rem;
             }
             .tourism-highlight p {
-                font-size: 0.82rem !important;
+                font-size: 0.8rem !important;
             }
 
             .process-step .icon {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .process-step h6 {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
             .process-step small {
                 font-size: 0.6rem;
             }
 
             .navbar-brand {
-                font-size: 1rem;
+                font-size: 0.85rem;
                 gap: 6px;
             }
             .nav-link {
-                font-size: 0.85rem;
-                padding: 0.4rem 1rem !important;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem !important;
             }
 
             .footer {
-                font-size: 0.75rem;
-                padding: 14px 0;
+                font-size: 0.7rem;
+                padding: 12px 0;
             }
             .socials a {
-                width: 32px;
-                height: 32px;
-                font-size: 0.75rem;
+                width: 28px;
+                height: 28px;
+                font-size: 0.7rem;
             }
         }
 
         /* Small phones */
         @media (max-width: 480px) {
             .section-title h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .section-title .eyebrow {
-                font-size: 0.6rem;
-                padding: 0.2rem 1rem;
+                font-size: 0.55rem;
+                padding: 0.2rem 0.8rem;
             }
             .section-title p {
-                font-size: 0.8rem;
-                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.78rem;
             }
 
-            .service-grid {
-                gap: 10px;
-                max-width: 100%;
-                padding: 0 4px;
-            }
             .service-card {
-                min-height: 80px;
-                padding: 12px 14px;
+                min-height: 90px;
+                padding: 12px 12px;
                 border-radius: 16px;
-                gap: 12px;
-                background-color: rgba(15, 42, 22, 0.7);
+                gap: 10px;
             }
             .service-card span {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             .service-card strong {
                 font-size: 0.82rem;
@@ -813,53 +810,63 @@
             }
 
             .service-panel {
-                padding: 16px 12px;
+                padding: 14px 12px;
                 border-radius: 16px;
                 min-height: 120px;
             }
             .service-panel .eyebrow {
                 font-size: 0.5rem;
-                padding: 0.15rem 0.8rem;
+                padding: 0.1rem 0.7rem;
             }
             .service-panel h3 {
-                font-size: 1rem;
-                margin-bottom: 8px;
+                font-size: 0.95rem;
+                margin-bottom: 6px;
             }
             .service-panel p {
-                font-size: 0.82rem;
+                font-size: 0.8rem;
                 line-height: 1.5;
-                color: rgba(255, 255, 255, 0.92);
             }
             .service-panel .panel-actions {
-                gap: 8px;
-                margin-top: 12px;
+                gap: 6px;
+                margin-top: 10px;
                 flex-direction: column;
             }
             .service-panel .action-btn {
                 font-size: 0.72rem;
-                padding: 6px 14px;
+                padding: 6px 12px;
                 text-align: center;
                 width: 100%;
             }
             .service-panel .row img {
-                height: 60px;
+                height: 50px;
                 border-radius: 10px;
             }
 
-            .carousel-inner img {
-                height: 200px !important;
+            .carousel-inner .img-placeholder {
+                height: 170px;
+                font-size: 2.2rem;
+            }
+
+            .img-placeholder {
+                min-height: 55px;
+                font-size: 1.6rem;
+                border-radius: 10px;
+            }
+            .img-placeholder-sm {
+                min-height: 45px;
+                font-size: 1.2rem;
             }
 
             .guide-box {
-                padding: 14px 12px;
+                padding: 12px 10px;
                 border-radius: 14px;
             }
             .guide-box h4 {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             .guide-box p,
             .guide-box ol {
-                font-size: 0.78rem !important;
+                font-size: 0.75rem !important;
             }
             .guide-box ol {
                 padding-left: 1rem;
@@ -869,7 +876,7 @@
             }
 
             .tourism-highlight {
-                padding: 12px 10px;
+                padding: 12px;
                 border-radius: 12px;
             }
             .tourism-highlight h5 {
@@ -884,49 +891,49 @@
                 border-radius: 10px;
             }
             .process-step .icon {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
             .process-step h6 {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
             .process-step small {
                 font-size: 0.5rem;
             }
 
             .navbar-brand {
-                font-size: 0.85rem;
+                font-size: 0.72rem;
                 gap: 4px;
             }
             .nav-link {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.8rem !important;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem !important;
             }
 
             .footer {
                 font-size: 0.6rem;
-                padding: 12px 0;
+                padding: 10px 0;
             }
             .footer .container {
                 flex-direction: column;
-                gap: 6px;
+                gap: 8px;
                 text-align: center;
             }
             .socials a {
-                width: 28px;
-                height: 28px;
-                font-size: 0.65rem;
+                width: 24px;
+                height: 24px;
+                font-size: 0.6rem;
             }
 
             .empty-panel {
-                padding: 24px 12px;
-                font-size: 0.9rem;
+                padding: 20px 12px;
+                font-size: 0.85rem;
             }
             .empty-panel::before {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
         }
 
-        /* Extra small */
+        /* Extra small (very old phones) */
         @media (max-width: 360px) {
             .section-title h1 {
                 font-size: 1.2rem;
@@ -935,19 +942,20 @@
                 font-size: 0.7rem;
             }
             .service-card span {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             .service-panel h3 {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
             .service-panel p {
                 font-size: 0.72rem;
             }
-            .carousel-inner img {
-                height: 160px !important;
+            .carousel-inner .img-placeholder {
+                height: 140px;
+                font-size: 1.8rem;
             }
             .navbar-brand {
-                font-size: 0.7rem;
+                font-size: 0.62rem;
             }
         }
 
@@ -988,7 +996,7 @@
     </nav>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main class="container py-4">
+    <main class="container py-3 py-md-4">
         <div class="section-title">
             <span class="eyebrow">SUNILS TEA FACTORY</span>
             <h1>සුනිල්ස් තේ කර්මාන්තශාලාව</h1>
@@ -1021,14 +1029,14 @@
         </div>
 
         <!-- Service Panel -->
-        <div id="servicePanel" class="service-panel mt-4">
+        <div id="servicePanel" class="service-panel mt-3 mt-md-4">
             <div class="empty-panel">👆 ඉහත සේවා බටනයක් තෝරන්න</div>
         </div>
     </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 gap-md-3">
             <div>© 2026 Sunils Tea Factory Media Unit</div>
             <div class="socials">
                 <a href="#" aria-label="Facebook">f</a>
@@ -1097,17 +1105,14 @@
             // ---- SERVICE PANEL DATA ----
             const panel = document.getElementById("servicePanel");
 
-            // Helper: create image grid with real images (picsum.photos placeholders)
-            function placeholderImages(count, cols, seedBase) {
+            function placeholderImages(count, cols, emoji) {
                 let html = '<div class="row g-2">';
                 for (let i = 1; i <= count; i++) {
-                    const seed = seedBase + i;
                     html += `
                                 <div class="col-6 col-md-${cols}">
-                                    <img src="https://picsum.photos/seed/${seed}/400/300" 
-                                         class="img-fluid rounded-3" 
-                                         alt="Tea image ${i}"
-                                         style="width:100%; height:120px; object-fit:cover; border-radius:12px;">
+                                    <div class="img-placeholder img-placeholder-sm">
+                                        ${emoji || '🍃'}
+                                    </div>
                                 </div>
                             `;
                 }
@@ -1141,8 +1146,8 @@
                                 <a class="action-btn" href="tel:+94773535500">🌾 හේලිස් පොහොර උපදේශන නිලධාරී</a>
                             </div>
                             <div class="mt-4">
-                                <h5 class="fw-bold" style="color:var(--gold);">📸 සේවා ඡායාරූප</h5>
-                                ${placeholderImages(5, 2, 'leafimg')}
+                                <h5 class="fw-bold" style="color:var(--gold); font-size:0.95rem;">📸 සේවා ඡායාරූප</h5>
+                                ${placeholderImages(5, 2, '🌱')}
                             </div>`,
 
                 tourism: `
@@ -1161,7 +1166,7 @@
                             </p>
 
                             <!-- TOURISM HIGHLIGHTS -->
-                            <div class="row g-3 mt-4">
+                            <div class="row g-3 mt-3">
                                 <div class="col-12 col-md-6">
                                     <div class="tourism-highlight">
                                         <h5>🍃 01. තේ වතු අත්දැකීම</h5>
@@ -1189,9 +1194,9 @@
                             </div>
 
                             <!-- PRODUCTION PROCESS -->
-                            <div class="mt-5">
-                                <h4 class="fw-bold" style="color:var(--gold);">🏭 තේ නිෂ්පාදන ක්‍රියාවලිය</h4>
-                                <div class="row g-3 mt-2">
+                            <div class="mt-4">
+                                <h4 class="fw-bold" style="color:var(--gold); font-size:1.1rem;">🏭 තේ නිෂ්පාදන ක්‍රියාවලිය</h4>
+                                <div class="row g-2 g-md-3 mt-2">
                                     <div class="col-6 col-md-3">
                                         <div class="process-step">
                                             <span class="icon">🍃</span>
@@ -1224,7 +1229,7 @@
                             </div>
 
                             <!-- ENGLISH GUIDE -->
-                            <div class="guide-box mt-5">
+                            <div class="guide-box mt-4">
                                 <h4>🇬🇧 Tea Factory Guided Tour</h4>
                                 <p>At <strong>Sunils Tea Factory</strong>, visitors are invited to experience the journey of Ceylon Tea from the tea estate to the finished product.</p>
                                 <p>Our experienced English-speaking tea factory guides will explain the tea manufacturing process clearly and professionally throughout the tour.</p>
@@ -1240,25 +1245,25 @@
                                 <p class="mb-0">☕ <strong>Experience the story of Ceylon Tea with us.</strong></p>
                             </div>
 
-                            <!-- PHOTO SLIDESHOW (now with real images) -->
-                            <div class="mt-5">
-                                <h4 class="fw-bold mb-3" style="color:var(--gold);">📸 තේ සංචාරක ඡායාරූප</h4>
+                            <!-- PHOTO SLIDESHOW -->
+                            <div class="mt-4">
+                                <h4 class="fw-bold mb-3" style="color:var(--gold); font-size:1.05rem;">📸 තේ සංචාරක ඡායාරූප</h4>
                                 <div id="teaTourismCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                                     <div class="carousel-inner rounded-4 overflow-hidden">
                                         <div class="carousel-item active">
-                                            <img src="https://picsum.photos/seed/teatour1/800/500" class="d-block w-100" alt="Tea Tourism 1" style="height:420px; object-fit:cover;">
+                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🌿</div>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="https://picsum.photos/seed/teatour2/800/500" class="d-block w-100" alt="Tea Tourism 2" style="height:420px; object-fit:cover;">
+                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🍃</div>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="https://picsum.photos/seed/teatour3/800/500" class="d-block w-100" alt="Tea Tourism 3" style="height:420px; object-fit:cover;">
+                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🌱</div>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="https://picsum.photos/seed/teatour4/800/500" class="d-block w-100" alt="Tea Tourism 4" style="height:420px; object-fit:cover;">
+                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🍂</div>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="https://picsum.photos/seed/teatour5/800/500" class="d-block w-100" alt="Tea Tourism 5" style="height:420px; object-fit:cover;">
+                                            <div class="img-placeholder" style="height:320px; min-height:unset; font-size:5rem;">🌿</div>
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#teaTourismCarousel" data-bs-slide="prev">
@@ -1270,12 +1275,12 @@
                                         <span class="visually-hidden">Next</span>
                                     </button>
                                 </div>
-                                <div class="text-center mt-3">
-                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="0" class="btn btn-sm btn-outline-light">1</button>
-                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="1" class="btn btn-sm btn-outline-light">2</button>
-                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="2" class="btn btn-sm btn-outline-light">3</button>
-                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="3" class="btn btn-sm btn-outline-light">4</button>
-                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="4" class="btn btn-sm btn-outline-light">5</button>
+                                <div class="text-center mt-2 d-flex flex-wrap justify-content-center gap-1">
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="0" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">1</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="1" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">2</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="2" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">3</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="3" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">4</button>
+                                    <button type="button" data-bs-target="#teaTourismCarousel" data-bs-slide-to="4" class="btn btn-sm btn-outline-light" style="font-size:0.7rem; padding:2px 10px;">5</button>
                                 </div>
                             </div>
 
@@ -1284,7 +1289,7 @@
                                 <a class="action-btn" href="tel:+94763335365">📞 සංචාරක සේවාව අමතන්න / Contact Tea Tourism</a>
                             </div>
                             <div class="mt-3 text-center">
-                                <small style="color:rgba(200,230,200,0.7);">🌿 <strong>Sunils Tea Factory</strong> – Experience the journey of Ceylon Tea.</small>
+                                <small style="color:rgba(180,210,180,0.7); font-size:0.75rem;">🌿 <strong>Sunils Tea Factory</strong> – Experience the journey of Ceylon Tea.</small>
                             </div>`
             };
 
@@ -1311,20 +1316,18 @@
                         }
                         // Fix carousel image heights on mobile after render
                         setTimeout(() => {
-                            const imgs = carouselEl.querySelectorAll('img');
-                            const isMobile = window.innerWidth < 768;
-                            const height = isMobile ? (window.innerWidth < 480 ? 200 : 280) : 420;
+                            const imgs = carouselEl.querySelectorAll('.img-placeholder');
                             imgs.forEach(img => {
-                                img.style.height = height + 'px';
+                                img.style.height = '320px';
                             });
-                        }, 150);
+                        }, 100);
                     }
 
                     panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
                 });
             });
 
-            // ---- BOOTSTRAP CAROUSEL AUTO-INIT FOR ANY EXISTING ----
+            // ---- BOOTSTRAP CAROUSEL AUTO-INIT ----
             document.querySelectorAll('.carousel').forEach(el => {
                 if (!bootstrap.Carousel.getInstance(el)) {
                     new bootstrap.Carousel(el, {
@@ -1337,14 +1340,9 @@
 
             // ---- FIX CAROUSEL HEIGHT ON RESIZE ----
             function fixCarouselHeights() {
-                const carouselEl = document.getElementById('teaTourismCarousel');
-                if (!carouselEl) return;
-                const imgs = carouselEl.querySelectorAll('img');
-                const width = window.innerWidth;
-                let height = 420;
-                if (width < 480) height = 200;
-                else if (width < 768) height = 280;
-                else if (width < 992) height = 340;
+                const imgs = document.querySelectorAll('#teaTourismCarousel .img-placeholder');
+                const isMobile = window.innerWidth < 768;
+                const height = isMobile ? 200 : 320;
                 imgs.forEach(img => {
                     img.style.height = height + 'px';
                 });
@@ -1352,7 +1350,7 @@
             window.addEventListener('resize', fixCarouselHeights);
             setTimeout(fixCarouselHeights, 500);
 
-            console.log('🍃 Sunils Tea Factory – using real images (picsum.photos) – replace URLs with your own.');
+            console.log('🍃 Sunils Tea Factory – rewritten and working');
         })();
     </script>
 
